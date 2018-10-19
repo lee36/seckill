@@ -14,14 +14,7 @@ import java.util.List;
  */
 @Mapper
 public interface CatalogMapper {
-//    @Select("select * from goods_catalog_tb")
-//    @Results({
-//            @Result(column = "id",property = "id",id = true),
-//            @Result(column = "id",javaType =List.class,property = "goodsList",many = @Many(
-//                    select = "com.lee.seckillshop.mapper.GoodsMapper.findTop4ByWeightOrderByDesc"
-//            ))
-//    })
-//    public List<GoodsCatalog> findAllGoodsCatalog();
+
     @Select("select * from goods_catalog_tb")
     public List<GoodsCatalog> findAllCatalog();
 }

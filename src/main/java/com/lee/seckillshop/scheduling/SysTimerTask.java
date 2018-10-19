@@ -51,7 +51,6 @@ public class SysTimerTask {
      */
     @Scheduled(fixedRate = 10000L)
     public void addGoods2SolrDocument(){
-        System.out.println("==========更新solrDocument==========");
         //从数据库中加载所有Goods
         List<Goods> allGoods = goodsMapper.findAllGoods();
         List<GoodSolrDocument> allSolrGoods = new ArrayList<>();
@@ -68,6 +67,5 @@ public class SysTimerTask {
             allSolrGoods.add(goodSolrDocument);
         }
         goodSolrDocumentRepository.saveAll(allSolrGoods);
-        System.out.println("==========更新solrDocument完成==========");
     }
 }

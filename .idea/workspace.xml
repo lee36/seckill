@@ -1,10 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/src/main/java/com/lee/seckillshop/config/WebConfig.java" line="25" mnemonic="2" />
+    <bookmark url="file://$PROJECT_DIR$/src/main/java/com/lee/seckillshop/config/WebConfig.java" line="26" mnemonic="2" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="43001727-7e16-434c-a109-c3f5f38fd354" name="Default" comment="" />
+    <list default="true" id="43001727-7e16-434c-a109-c3f5f38fd354" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/lee/seckillshop/config/WebSocketConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/lee/seckillshop/controller/GlobleExceptionController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/lee/seckillshop/exception/SeckillGoodIdNotExistException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/lee/seckillshop/exception/SeckillGoodStatusNotExistException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/lee/seckillshop/exception/SeckillUserIdNotExistException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/lee/seckillshop/mapper/SeckillOrderMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/lee/seckillshop/vo/SeckillGoodVo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/error/4xx.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/error/5xx.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/jquery-3.1.1.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/sockjs.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/stomp.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lee/seckillshop/SeckillShopApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lee/seckillshop/SeckillShopApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lee/seckillshop/aop/SeckillGoodAop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lee/seckillshop/aop/SeckillGoodAop.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lee/seckillshop/config/WebConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lee/seckillshop/config/WebConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lee/seckillshop/controller/SeckillGoodController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lee/seckillshop/controller/SeckillGoodController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lee/seckillshop/mapper/CatalogMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lee/seckillshop/mapper/CatalogMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lee/seckillshop/mapper/SeckillGoodsMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lee/seckillshop/mapper/SeckillGoodsMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lee/seckillshop/mapper/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lee/seckillshop/mapper/UserMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lee/seckillshop/model/SeckillGood.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lee/seckillshop/model/SeckillGood.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lee/seckillshop/scheduling/SysTimerTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lee/seckillshop/scheduling/SysTimerTask.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lee/seckillshop/service/GoodSeckillService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lee/seckillshop/service/GoodSeckillService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lee/seckillshop/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lee/seckillshop/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lee/seckillshop/service/impl/GoodSeckillServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lee/seckillshop/service/impl/GoodSeckillServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lee/seckillshop/service/impl/GoodsServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lee/seckillshop/service/impl/GoodsServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lee/seckillshop/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lee/seckillshop/service/impl/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/schema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/schema.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/lee/seckillshop/TestDemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/lee/seckillshop/TestDemo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/lee/seckillshop/SeckillShopApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/lee/seckillshop/SeckillShopApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/lee/seckillshop/aop/SeckillGoodAop.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/lee/seckillshop/aop/SeckillGoodAop.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/lee/seckillshop/config/WebConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/lee/seckillshop/config/WebConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/lee/seckillshop/controller/SeckillGoodController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/lee/seckillshop/controller/SeckillGoodController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/lee/seckillshop/mapper/SeckillGoodsMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/lee/seckillshop/mapper/SeckillGoodsMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/lee/seckillshop/mapper/UserMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/lee/seckillshop/mapper/UserMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/lee/seckillshop/model/SeckillGood.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/lee/seckillshop/model/SeckillGood.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/lee/seckillshop/scheduling/SysTimerTask.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/lee/seckillshop/scheduling/SysTimerTask.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/lee/seckillshop/service/GoodSeckillService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/lee/seckillshop/service/GoodSeckillService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/lee/seckillshop/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/lee/seckillshop/service/UserService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/lee/seckillshop/service/impl/GoodSeckillServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/lee/seckillshop/service/impl/GoodSeckillServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/lee/seckillshop/service/impl/GoodsServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/lee/seckillshop/service/impl/GoodsServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/lee/seckillshop/service/impl/UserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/lee/seckillshop/service/impl/UserServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/schema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/schema.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/lee/seckillshop/TestDemo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/lee/seckillshop/TestDemo.class" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -34,9 +82,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="AnnotationType" />
         <option value="JUnit4 Test Class" />
+        <option value="HTML File" />
         <option value="Interface" />
         <option value="Class" />
       </list>
@@ -47,60 +95,63 @@
       <find>conver</find>
     </findStrings>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/lee/seckillshop/intercepter/RegistIntercepter.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/lee/seckillshop/mapper/FlowMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/lee/seckillshop/componet/JedisTemplate.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/lee/seckillshop/form/UserLoginForm.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/lee/seckillshop/vo/SolrDocument.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/lee/seckillshop/vo/GoodDocument.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/lee/seckillshop/mapper/GoodMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/lee/seckillshop/controller/GoodController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/lee/seckillshop/mapper/StoreMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/lee/seckillshop/model/seckillGood.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/static/test.html" />
-        <option value="$PROJECT_DIR$/src/main/java/com/lee/seckillshop/service/UserService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/lee/seckillshop/form/PasswordValidate.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/lee/seckillshop/util/ParseSolrDocumentUtilTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/lee/seckillshop/vo/GoodSolrDocument.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/lee/seckillshop/util/ParseSolrDocumentUtil.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/lee/seckillshop/controller/WxController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/lee/seckillshop/form/UserRegistForm.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/lee/seckillshop/service/impl/UserServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/lee/seckillshop/util/JwtUtil.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/lee/seckillshop/controller/UserController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/lee/seckillshop/model/GoodsCatalog.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/lee/seckillshop/model/Goods.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/lee/seckillshop/service/GoodsService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/lee/seckillshop/service/CatalogService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/lee/seckillshop/controller/CatalogController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/lee/seckillshop/mapper/GoodSolrDocumentRepository.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/lee/seckillshop/model/SeckillGood.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/lee/seckillshop/SeckillShopApplicationTests.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/lee/seckillshop/SeckillShopApplicationTests.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/lee/seckillshop/TestDemo.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/lee/seckillshop/intercepter/TokenInterceper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/lee/seckillshop/service/impl/CatalogServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/lee/seckillshop/mapper/GoodsMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/lee/seckillshop/controller/Test.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/lee/seckillshop/vo/StringToTimeStamp.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/lee/seckillshop/vo/StringToSeckillGoods.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/lee/seckillshop/config/WebConfig.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/lee/seckillshop/aop/TimeStampAop.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/lee/seckillshop/model/SeckillGood.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/lee/seckillshop/vo/SeckillGoodVo.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/lee/seckillshop/mapper/CatalogMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/lee/seckillshop/scheduling/SysTimerTask.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/lee/seckillshop/controller/GoodsController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/lee/seckillshop/service/impl/GoodsServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/lee/seckillshop/controller/WxController.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/error/5xx.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/error/4xx.html" />
+        <option value="$PROJECT_DIR$/src/main/java/com/lee/seckillshop/controller/BasicController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/lee/seckillshop/service/GoodSeckillService.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/lee/seckillshop/config/WebSocketConfig.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/index.html" />
+        <option value="$PROJECT_DIR$/src/main/java/com/lee/seckillshop/exception/SeckillGoodException.java" />
         <option value="$PROJECT_DIR$/src/main/resources/schema.sql" />
         <option value="$PROJECT_DIR$/src/main/resources/schema.sql" />
         <option value="$PROJECT_DIR$/src/main/resources/schema.sql" />
         <option value="$PROJECT_DIR$/src/main/resources/schema.sql" />
         <option value="$PROJECT_DIR$/src/main/java/com/lee/seckillshop/SeckillShopApplication.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/lee/seckillshop/aop/SeckillGoodAop.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/lee/seckillshop/controller/SeckillGoodController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/lee/seckillshop/service/impl/GoodSeckillServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/lee/seckillshop/componet/Test.java" />
         <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
-        <option value="$PROJECT_DIR$/src/main/java/com/lee/seckillshop/mapper/CatalogMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/lee/seckillshop/service/impl/CatalogServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/lee/seckillshop/scheduling/SysTimerTask.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/lee/seckillshop/mapper/GoodsMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/lee/seckillshop/controller/GoodsController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/lee/seckillshop/service/impl/GoodsServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/lee/seckillshop/mapper/SeckillOrderMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/lee/seckillshop/provider/StockUpdateProvider.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/lee/seckillshop/mapper/SeckillGoodsMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/lee/seckillshop/aop/SeckillGoodAop.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/lee/seckillshop/service/impl/GoodSeckillServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/lee/seckillshop/exception/SeckillUserIdNotExistException.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/lee/seckillshop/exception/SeckillGoodIdNotExistException.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/lee/seckillshop/mapper/UserMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/lee/seckillshop/service/UserService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/lee/seckillshop/service/impl/UserServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/lee/seckillshop/exception/GlobleExceptionController.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/lee/seckillshop/TestDemo.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/lee/seckillshop/exception/SeckillGoodStatusNotExistException.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/lee/seckillshop/controller/GlobleExceptionController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/lee/seckillshop/controller/SeckillGoodController.java" />
       </list>
     </option>
   </component>
@@ -132,17 +183,19 @@
     <packageJsonPaths />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="230" />
-    <option name="y" value="18" />
+    <option name="x" value="-66" />
+    <option name="y" value="234" />
     <option name="width" value="1615" />
     <option name="height" value="936" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
+      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -183,7 +236,7 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="seckillshop" type="462c0819:PsiDirectoryNode" />
-              <item name="mapper" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="seckill-shop" type="b2602c69:ProjectViewProjectNode" />
@@ -192,12 +245,32 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="seckill-shop" type="b2602c69:ProjectViewProjectNode" />
+              <item name="seckill-shop" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="seckill-shop" type="b2602c69:ProjectViewProjectNode" />
+              <item name="seckill-shop" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="seckill-shop" type="b2602c69:ProjectViewProjectNode" />
+              <item name="seckill-shop" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="seckillshop" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="AndroidView" />
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -287,29 +360,6 @@
       </option>
       <patterns />
     </configuration>
-    <configuration name="SeckillShopApplicationTests.jedisTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="seckill-shop" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.lee.seckillshop.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="com.lee.seckillshop" />
-      <option name="MAIN_CLASS_NAME" value="com.lee.seckillshop.SeckillShopApplicationTests" />
-      <option name="METHOD_NAME" value="jedisTest" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <patterns />
-    </configuration>
     <configuration name="SeckillShopApplicationTests.saveGoodDocument" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="seckill-shop" />
       <extension name="coverage">
@@ -379,6 +429,29 @@
       </option>
       <patterns />
     </configuration>
+    <configuration name="TestDemo.test1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="seckill-shop" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.lee.seckillshop.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="com.lee.seckillshop" />
+      <option name="MAIN_CLASS_NAME" value="com.lee.seckillshop.TestDemo" />
+      <option name="METHOD_NAME" value="test1" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <patterns />
+    </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
@@ -423,19 +496,19 @@
     </configuration>
     <list>
       <item itemvalue="Spring Boot.SeckillShopApplication" />
-      <item itemvalue="JUnit.SeckillShopApplicationTests.jedisTest" />
       <item itemvalue="JUnit.SeckillShopApplicationTests.saveGoodDocument" />
       <item itemvalue="JUnit.ParseSolrDocumentUtilTest.transUnderLine" />
       <item itemvalue="JUnit.TestDemo.test" />
       <item itemvalue="JUnit.TestDemo" />
+      <item itemvalue="JUnit.TestDemo.test1" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.TestDemo.test1" />
         <item itemvalue="JUnit.TestDemo.test" />
         <item itemvalue="JUnit.TestDemo" />
         <item itemvalue="JUnit.ParseSolrDocumentUtilTest.transUnderLine" />
         <item itemvalue="JUnit.SeckillShopApplicationTests.saveGoodDocument" />
-        <item itemvalue="JUnit.SeckillShopApplicationTests.jedisTest" />
       </list>
     </recent_temporary>
   </component>
@@ -485,22 +558,18 @@
       <workItem from="1539564748750" duration="3794000" />
       <workItem from="1539602720053" duration="7729000" />
       <workItem from="1539651265368" duration="2415000" />
+      <workItem from="1539675200905" duration="14859000" />
+      <workItem from="1539738377252" duration="51000" />
+      <workItem from="1539743748713" duration="7624000" />
+      <workItem from="1539770554621" duration="3875000" />
+      <workItem from="1539774561092" duration="4994000" />
+      <workItem from="1539824234924" duration="23932000" />
+      <workItem from="1539911095972" duration="7351000" />
+      <workItem from="1539918533262" duration="7651000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="ParseSolrDocumentUtilTest_transUnderLine - 2018.10.10 at 13h 59m 53s.xml">
-      <configuration name="ParseSolrDocumentUtilTest.transUnderLine" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ParseSolrDocumentUtilTest_transUnderLine - 2018.10.10 at 14h 06m 46s.xml">
-      <configuration name="ParseSolrDocumentUtilTest.transUnderLine" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="TestDemo_test - 2018.10.12 at 13h 34m 29s.xml">
-      <configuration name="TestDemo.test" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="TestDemo_test - 2018.10.12 at 13h 35m 06s.xml">
-      <configuration name="TestDemo.test" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="TestDemo_test - 2018.10.12 at 13h 35m 31s.xml">
       <configuration name="TestDemo.test" configurationId="JUnit" />
     </history-entry>
@@ -519,35 +588,47 @@
     <history-entry file="TestDemo_test - 2018.10.12 at 17h 00m 39s.xml">
       <configuration name="TestDemo.test" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="TestDemo_test1 - 2018.10.17 at 20h 06m 00s.xml">
+      <configuration name="TestDemo.test1" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TestDemo_test1 - 2018.10.17 at 20h 06m 13s.xml">
+      <configuration name="TestDemo.test1" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TestDemo_test1 - 2018.10.17 at 20h 06m 57s.xml">
+      <configuration name="TestDemo.test1" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TestDemo_test1 - 2018.10.17 at 20h 22m 12s.xml">
+      <configuration name="TestDemo.test1" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="176431000" />
+    <option name="totallyTimeSpent" value="246768000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="Event Log" order="13" side_tool="true" />
-      <window_info anchor="right" id="Maven Projects" order="9" weight="0.10341151" />
+      <window_info anchor="right" id="Maven Projects" order="9" visible="true" weight="0.1924307" />
       <window_info anchor="bottom" id="Database Changes" order="11" show_stripe_button="false" />
       <window_info id="Capture Tool" order="7" />
       <window_info id="Designer" order="2" />
       <window_info anchor="right" id="Database" order="5" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Structure" order="1" sideWeight="0.2372159" side_tool="true" weight="0.16257995" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="4" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.23489933" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.36842105" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Messages" order="9" weight="0.06263982" />
+      <window_info anchor="bottom" id="Messages" order="9" weight="0.3225084" />
       <window_info anchor="right" id="Palette&#9;" order="6" />
       <window_info id="Image Layers" order="3" />
       <window_info anchor="bottom" id="Java Enterprise" order="10" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
-      <window_info anchor="bottom" id="Version Control" order="12" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.21923937" />
+      <window_info anchor="bottom" id="Version Control" order="12" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.24076147" />
       <window_info anchor="bottom" id="Spring" order="7" />
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.32997763" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1609808" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.76278406" visible="true" weight="0.17643923" />
       <window_info anchor="right" id="Bean Validation" order="8" />
       <window_info id="Web" order="6" side_tool="true" />
       <window_info anchor="right" id="Theme Preview" order="7" />
@@ -557,42 +638,8 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32922733" />
     </layout>
-    <layout-to-restore>
-      <window_info id="Designer" order="2" />
-      <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="bottom" id="Spring" order="7" />
-      <window_info id="Image Layers" order="3" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.20693512" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info id="UI Designer" order="4" />
-      <window_info id="Favorites" order="5" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.32997763" />
-      <window_info id="Capture Tool" order="7" />
-      <window_info anchor="right" id="Capture Analysis" order="4" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="bottom" id="Event Log" order="13" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="9" weight="0.32885906" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="bottom" id="Java Enterprise" order="10" />
-      <window_info anchor="bottom" id="Database Changes" order="11" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="12" show_stripe_button="false" />
-      <window_info anchor="right" id="Maven Projects" order="9" weight="0.10341151" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22068231" />
-      <window_info anchor="right" id="Database" order="5" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info id="Web" order="6" side_tool="true" />
-      <window_info anchor="right" id="Palette&#9;" order="6" />
-      <window_info anchor="right" id="Theme Preview" order="7" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="right" id="Bean Validation" order="8" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.23489933" />
-    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -611,330 +658,350 @@
           </properties>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/lee/seckillshop/service/impl/GoodSeckillServiceImpl.java</url>
+          <line>95</line>
+          <properties />
+          <option name="timeStamp" value="69" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="13" />
+      <option name="time" value="72" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$MAVEN_REPOSITORY$/org/mybatis/mybatis/3.4.6/mybatis-3.4.6.jar!/org/apache/ibatis/annotations/Many.class">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-tx/5.0.9.RELEASE/spring-tx-5.0.9.RELEASE.jar!/org/springframework/transaction/annotation/Transactional.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="19" column="40" selection-start-line="19" selection-start-column="40" selection-end-line="19" selection-end-column="40" />
+        <state relative-caret-position="164">
+          <caret line="19" column="18" selection-start-line="19" selection-start-column="18" selection-end-line="19" selection-end-column="18" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/mybatis/mybatis/3.4.6/mybatis-3.4.6.jar!/org/apache/ibatis/session/Configuration.class">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lee/seckillshop/util/CommonUtil.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="852">
-          <caret line="195" column="47" selection-start-line="195" selection-start-column="47" selection-end-line="195" selection-end-column="47" />
+        <state relative-caret-position="-756">
+          <caret line="25" column="13" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lee/seckillshop/model/GoodsCatalog.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="381">
-          <caret line="25" column="23" selection-start-line="25" selection-start-column="23" selection-end-line="25" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lee/seckillshop/service/CatalogService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="11" column="46" selection-start-line="11" selection-start-column="46" selection-end-line="11" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/lee/seckillshop/util/ParseSolrDocumentUtilTest.java" />
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/lee/seckillshop/SeckillShopApplicationTests.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="52" column="34" selection-start-line="52" selection-start-column="34" selection-end-line="52" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Java/jdk1.8.0_181/src.zip!/java/util/concurrent/locks/Lock.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3250">
-          <caret line="166" column="17" selection-start-line="166" selection-start-column="17" selection-end-line="166" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Java/jdk1.8.0_181/src.zip!/java/util/concurrent/locks/ReentrantLock.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="297" column="33" lean-forward="true" selection-start-line="288" selection-start-column="7" selection-end-line="299" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Java/jdk1.8.0_181/src.zip!/java/util/concurrent/LinkedBlockingDeque.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-135">
-          <caret line="416" column="50" lean-forward="true" selection-start-line="416" selection-start-column="50" selection-end-line="416" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Java/jdk1.8.0_181/src.zip!/java/util/Map.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="71">
-          <caret line="122" column="17" lean-forward="true" selection-start-line="122" selection-start-column="17" selection-end-line="122" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Java/jdk1.8.0_181/src.zip!/java/util/HashMap.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3537">
-          <caret line="282" column="23" lean-forward="true" selection-start-line="282" selection-start-column="23" selection-end-line="282" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lee/seckillshop/intercepter/TokenIntercepter.java" />
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/5.0.9.RELEASE/spring-webmvc-5.0.9.RELEASE.jar!/org/springframework/web/servlet/config/annotation/InterceptorRegistration.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="30" column="35" selection-start-line="30" selection-start-column="35" selection-end-line="30" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lee/seckillshop/controller/WxController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="729">
-          <caret line="36" column="28" lean-forward="true" selection-start-line="36" selection-start-column="28" selection-end-line="36" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lee/seckillshop/controller/CatalogController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="355">
-          <caret line="16" column="27" lean-forward="true" selection-start-line="16" selection-start-column="27" selection-end-line="16" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/lee/seckillshop/TestDemo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="24" column="32" selection-start-line="24" selection-start-column="32" selection-end-line="24" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-autoconfigure/2.0.5.RELEASE/spring-boot-autoconfigure-2.0.5.RELEASE.jar!/org/springframework/boot/autoconfigure/http/HttpEncodingProperties.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="15" column="1" lean-forward="true" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lee/seckillshop/intercepter/TokenInterceper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="22" column="49" selection-start-line="22" selection-start-column="49" selection-end-line="22" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lee/seckillshop/controller/UserController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="790">
-          <caret line="71" selection-start-line="71" selection-end-line="71" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lee/seckillshop/model/SeckillGood.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="439">
-          <caret line="33" column="32" lean-forward="true" selection-start-line="33" selection-start-column="32" selection-end-line="33" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/schema.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="102" column="48" selection-start-line="102" selection-start-column="48" selection-end-line="102" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lee/seckillshop/config/WebConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-318">
-          <caret line="36" column="7" selection-start-line="36" selection-start-column="7" selection-end-line="36" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lee/seckillshop/intercepter/RegistIntercepter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="24" column="48" selection-start-line="24" selection-start-column="48" selection-end-line="24" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lee/seckillshop/service/GoodSeckillService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="6" column="35" selection-start-line="6" selection-start-column="35" selection-end-line="6" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lee/seckillshop/SeckillShopApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="15" column="23" selection-start-line="15" selection-start-column="23" selection-end-line="15" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
-          <caret line="130" column="47" selection-start-line="130" selection-start-column="47" selection-end-line="130" selection-end-column="47" />
-        </state>
-      </provider>
-      <provider editor-type-id="MavenHelperPluginDependencyAnalyzer" />
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/aspectj/aspectjweaver/1.8.13/aspectjweaver-1.8.13.jar!/org/aspectj/lang/annotation/Pointcut.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="14" column="18" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
+          <caret line="25" column="21" lean-forward="true" selection-start-line="25" selection-start-column="21" selection-end-line="25" selection-end-column="21" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/aspectj/aspectjweaver/1.8.13/aspectjweaver-1.8.13.jar!/org/aspectj/lang/JoinPoint.class">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lee/seckillshop/config/WebSocketConfig.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="9" column="17" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
+        <state relative-caret-position="252">
+          <caret line="11" column="29" selection-start-line="11" selection-start-column="29" selection-end-line="11" selection-end-column="29" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lee/seckillshop/componet/JedisTemplate.java">
+    <entry file="jar://C:/Java/jdk1.8.0_181/src.zip!/java/lang/StringBuilder.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
-          <caret line="28" column="17" selection-start-line="28" selection-start-column="17" selection-end-line="28" selection-end-column="17" />
+        <state relative-caret-position="203">
+          <caret line="88" selection-start-line="88" selection-end-line="88" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lee/seckillshop/aop/SeckillGoodAop.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/5.0.9.RELEASE/spring-context-5.0.9.RELEASE.jar!/org/springframework/context/annotation/AdviceMode.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="246">
-          <caret line="36" lean-forward="true" selection-start-line="36" selection-end-line="36" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="108">
+          <caret line="7" column="12" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/5.0.9.RELEASE/spring-context-5.0.9.RELEASE.jar!/org/springframework/scheduling/support/ScheduledMethodRunnable.class">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-tx/5.0.9.RELEASE/spring-tx-5.0.9.RELEASE.jar!/org/springframework/transaction/annotation/EnableTransactionManagement.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="37" selection-start-line="37" selection-end-line="37" />
+        <state relative-caret-position="351">
+          <caret line="22" column="38" selection-start-line="22" selection-start-column="38" selection-end-line="22" selection-end-column="38" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lee/seckillshop/model/Goods.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lee/seckillshop/componet/Test.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lee/seckillshop/model/User.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="490">
-          <caret line="39" column="24" lean-forward="true" selection-start-line="39" selection-start-column="24" selection-end-line="39" selection-end-column="24" />
+        <state relative-caret-position="163">
+          <caret line="35" lean-forward="true" selection-start-line="35" selection-end-line="35" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="28" column="33" lean-forward="true" selection-start-line="28" selection-start-column="33" selection-end-line="29" selection-end-column="51" />
+        <state relative-caret-position="186">
+          <caret line="10" column="1" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lee/seckillshop/mapper/GoodSolrDocumentRepository.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lee/seckillshop/SeckillShopApplication.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="18" column="65" selection-start-line="18" selection-start-column="65" selection-end-line="18" selection-end-column="65" />
+        <state relative-caret-position="135">
+          <caret line="13" column="20" lean-forward="true" selection-start-line="13" selection-start-column="20" selection-end-line="13" selection-end-column="20" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lee/seckillshop/mapper/StoreMapper.java">
+    <entry file="jar://C:/Java/jdk1.8.0_181/src.zip!/java/lang/ClassLoader.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="13" column="38" selection-start-line="13" selection-start-column="38" selection-end-line="13" selection-end-column="38" />
+        <state relative-caret-position="194">
+          <caret line="487" selection-start-line="487" selection-end-line="487" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-aop/5.0.9.RELEASE/spring-aop-5.0.9.RELEASE.jar!/org/springframework/aop/framework/CglibAopProxy.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="487" selection-start-line="487" selection-end-line="487" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-core/5.0.9.RELEASE/spring-core-5.0.9.RELEASE.jar!/org/springframework/cglib/proxy/MethodProxy.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="104" selection-start-line="104" selection-end-line="104" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lee/seckillshop/model/SeckillOrder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="246">
+          <caret line="25" column="13" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-aop/5.0.9.RELEASE/spring-aop-5.0.9.RELEASE.jar!/org/springframework/aop/aspectj/AbstractAspectJAdvice.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="384">
+          <caret line="425" selection-start-line="425" selection-end-line="425" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/mybatis/mybatis/3.4.6/mybatis-3.4.6.jar!/org/apache/ibatis/annotations/UpdateProvider.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lee/seckillshop/provider/StockUpdateProvider.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lee/seckillshop/provider/UserInsertProvider.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="11" column="33" lean-forward="true" selection-start-line="11" selection-start-column="33" selection-end-line="11" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lee/seckillshop/mapper/SeckillOrderMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="387">
+          <caret line="16" column="63" selection-start-line="16" selection-start-column="56" selection-end-line="16" selection-end-column="63" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lee/seckillshop/service/GoodSeckillService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="7" column="19" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Java/jdk1.8.0_181/src.zip!/java/lang/Integer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="217">
+          <caret line="892" selection-start-line="892" selection-end-line="892" />
+          <folding>
+            <element signature="e#33919#33920#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lee/seckillshop/exception/SeckillGoodIdNotExistException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="7" column="58" lean-forward="true" selection-start-line="7" selection-start-column="58" selection-end-line="7" selection-end-column="58" />
+          <folding>
+            <element signature="e#241#242#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lee/seckillshop/exception/SeckillUserIdNotExistException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="6" column="17" lean-forward="true" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/5.0.9.RELEASE/spring-web-5.0.9.RELEASE.jar!/org/springframework/web/bind/annotation/ResponseStatus.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="309">
+          <caret line="23" column="15" selection-start-line="23" selection-start-column="15" selection-end-line="23" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/5.0.9.RELEASE/spring-web-5.0.9.RELEASE.jar!/org/springframework/http/HttpStatus.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="112">
+          <caret line="79" column="4" selection-start-line="79" selection-start-column="4" selection-end-line="79" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lee/seckillshop/service/UserService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="17" column="16" selection-start-line="17" selection-start-column="16" selection-end-line="17" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lee/seckillshop/service/impl/UserServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1188">
+          <caret line="121" column="31" lean-forward="true" selection-start-line="121" selection-start-column="31" selection-end-line="121" selection-end-column="31" />
+          <folding>
+            <element signature="e#4568#4569#0" expanded="true" />
+            <element signature="e#4614#4615#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/lee/seckillshop/mapper/UserMapper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
-          <caret line="12" column="17" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lee/seckillshop/mapper/FlowMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="11" column="17" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lee/seckillshop/scheduling/SysTimerTask.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="55" column="58" lean-forward="true" selection-start-line="55" selection-start-column="58" selection-end-line="55" selection-end-column="58" />
+        <state relative-caret-position="405">
+          <caret line="31" column="36" lean-forward="true" selection-start-line="31" selection-start-column="36" selection-end-line="31" selection-end-column="36" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/lee/seckillshop/service/impl/GoodSeckillServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="18" column="14" lean-forward="true" selection-start-line="18" selection-start-column="14" selection-end-line="18" selection-end-column="14" />
+        <state relative-caret-position="1782">
+          <caret line="100" column="28" lean-forward="true" selection-start-line="100" selection-start-column="28" selection-end-line="100" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lee/seckillshop/aop/SeckillGoodAop.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="513">
+          <caret line="52" column="7" lean-forward="true" selection-start-line="52" selection-start-column="7" selection-end-line="52" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/redis/clients/jedis/2.9.0/jedis-2.9.0.jar!/redis/clients/jedis/JedisCluster.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lee/seckillshop/config/JedisConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="29" column="9" lean-forward="true" selection-start-line="29" selection-start-column="9" selection-end-line="29" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/redis/clients/jedis/2.9.0/jedis-2.9.0.jar!/redis/clients/jedis/BinaryJedisCluster.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="1326" column="18" selection-start-line="1326" selection-start-column="18" selection-end-line="1326" selection-end-column="18" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#56264#56265#0" expanded="true" />
+            <element signature="e#56364#56365#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lee/seckillshop/mapper/GoodsMapper.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/redis/clients/jedis/2.9.0/jedis-2.9.0-sources.jar!/redis/clients/jedis/JedisPool.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="412">
-          <caret line="22" column="39" selection-start-line="22" selection-start-column="23" selection-end-line="22" selection-end-column="39" />
+        <state relative-caret-position="108">
+          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/redis/clients/jedis/2.9.0/jedis-2.9.0-sources.jar!/redis/clients/jedis/JedisClusterInfoCache.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="21" column="39" selection-start-line="21" selection-start-column="39" selection-end-line="21" selection-end-column="39" />
+          <folding>
+            <element signature="e#689#708#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lee/seckillshop/componet/JedisTemplate.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="81">
+          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+          <folding>
+            <element signature="e#1606#1607#0" expanded="true" />
+            <element signature="e#1649#1650#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/redis/clients/jedis/2.9.0/jedis-2.9.0-sources.jar!/redis/clients/jedis/JedisClusterConnectionHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="28" column="22" lean-forward="true" selection-start-line="28" selection-start-column="22" selection-end-line="28" selection-end-column="22" />
+          <folding>
+            <element signature="e#960#961#0" expanded="true" />
+            <element signature="e#993#994#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/redis/clients/jedis/2.9.0/jedis-2.9.0-sources.jar!/redis/clients/jedis/BinaryJedisCluster.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="269">
+          <caret line="65" column="30" selection-start-line="65" selection-start-column="21" selection-end-line="65" selection-end-column="30" />
+          <folding>
+            <element signature="e#2530#2531#0" expanded="true" />
+            <element signature="e#2575#2576#0" expanded="true" />
+            <element signature="e#53170#53171#0" expanded="true" />
+            <element signature="e#53264#53265#0" expanded="true" />
+            <element signature="e#54139#54140#0" expanded="true" />
+            <element signature="e#54233#54234#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/commons/commons-pool2/2.5.0/commons-pool2-2.5.0.jar!/org/apache/commons/pool2/impl/GenericObjectPoolConfig.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/redis/clients/jedis/2.9.0/jedis-2.9.0-sources.jar!/redis/clients/jedis/JedisCluster.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3780">
+          <caret line="64" column="44" selection-start-line="64" selection-start-column="39" selection-end-line="64" selection-end-column="44" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/lee/seckillshop/mapper/SeckillGoodsMapper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="15" column="52" lean-forward="true" selection-start-line="15" selection-start-column="52" selection-end-line="15" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lee/seckillshop/service/impl/CatalogServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="20" column="32" lean-forward="true" selection-start-line="20" selection-start-column="32" selection-end-line="20" selection-end-column="32" />
-          <folding>
-            <element signature="e#555#556#0" expanded="true" />
-            <element signature="e#593#594#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="411">
+          <caret line="21" column="51" selection-start-line="21" selection-start-column="46" selection-end-line="21" selection-end-column="51" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/lee/seckillshop/service/impl/GoodsServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="355">
-          <caret line="50" column="39" lean-forward="true" selection-start-line="50" selection-start-column="39" selection-end-line="50" selection-end-column="39" />
+        <state relative-caret-position="331">
+          <caret line="78" column="62" selection-start-line="78" selection-start-column="49" selection-end-line="78" selection-end-column="62" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lee/seckillshop/controller/SeckillGoodController.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/lee/seckillshop/TestDemo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="355">
-          <caret line="18" column="18" selection-start-line="18" selection-start-column="18" selection-end-line="18" selection-end-column="18" />
+        <state relative-caret-position="188">
+          <caret line="29" column="21" selection-start-line="29" selection-start-column="21" selection-end-line="29" selection-end-column="21" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#609#610#0" expanded="true" />
-            <element signature="e#634#635#0" expanded="true" />
+            <element signature="e#1639#1640#0" expanded="true" />
+            <element signature="e#1721#1722#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lee/seckillshop/controller/GoodsController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="179">
-          <caret line="33" column="51" lean-forward="true" selection-start-line="33" selection-start-column="51" selection-end-line="33" selection-end-column="51" />
         </state>
       </provider>
     </entry>
@@ -945,38 +1012,52 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lee/seckillshop/service/impl/UserServiceImpl.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lee/seckillshop/controller/GoodsController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-182">
-          <caret line="80" column="37" selection-start-line="80" selection-start-column="37" selection-end-line="80" selection-end-column="37" />
+        <state relative-caret-position="271">
+          <caret line="33" column="52" selection-start-line="33" selection-start-column="52" selection-end-line="33" selection-end-column="52" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lee/seckillshop/vo/GoodSolrDocument.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/5.0.9.RELEASE/spring-web-5.0.9.RELEASE.jar!/org/springframework/web/bind/annotation/RequestParam.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="648">
-          <caret line="32" column="21" lean-forward="true" selection-start-line="32" selection-start-column="21" selection-end-line="32" selection-end-column="21" />
+        <state relative-caret-position="406">
+          <caret line="24" column="30" selection-start-line="24" selection-start-column="23" selection-end-line="24" selection-end-column="30" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lee/seckillshop/vo/ResultResponse.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lee/seckillshop/exception/SeckillGoodStatusNotExistException.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+        <state relative-caret-position="216">
+          <caret line="8" column="20" selection-start-line="8" selection-start-column="20" selection-end-line="8" selection-end-column="20" />
+          <folding>
+            <element signature="e#219#220#0" expanded="true" />
+            <element signature="e#240#241#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lee/seckillshop/util/CommonUtil.java">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/schema.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-891">
-          <caret line="25" column="13" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
+        <state relative-caret-position="390">
+          <caret line="102" column="56" selection-start-line="102" selection-start-column="49" selection-end-line="102" selection-end-column="56" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lee/seckillshop/mapper/CatalogMapper.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lee/seckillshop/controller/SeckillGoodController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="429">
-          <caret line="24" column="45" lean-forward="true" selection-start-line="24" selection-start-column="45" selection-end-line="24" selection-end-column="45" />
+        <state relative-caret-position="304">
+          <caret line="39" column="63" lean-forward="true" selection-start-line="39" selection-start-column="63" selection-end-line="39" selection-end-column="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lee/seckillshop/controller/GlobleExceptionController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="452">
+          <caret line="26" column="54" selection-start-line="26" selection-start-column="44" selection-end-line="26" selection-end-column="54" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

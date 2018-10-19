@@ -1,10 +1,14 @@
 package com.lee.seckillshop.model;
 
+import javafx.util.converter.TimeStringConverter;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 
+import java.sql.Time;
 import java.sql.Timestamp;
+import java.util.Date;
 
 /**
  * @author admin

@@ -1,12 +1,13 @@
 package com.lee.seckillshop.config;
 
 import com.lee.seckillshop.intercepter.RegistIntercepter;
-import com.lee.seckillshop.intercepter.RegistIntercepter;
 import com.lee.seckillshop.intercepter.TokenInterceper;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.web.PageableHandlerMethodArgumentResolver;
+import org.springframework.format.FormatterRegistry;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.method.support.HandlerMethodArgumentResolver;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
@@ -64,5 +65,6 @@ public class WebConfig implements WebMvcConfigurer {
     public RestTemplate restTemplate(){
         return new RestTemplate();
     }
+
 
 }

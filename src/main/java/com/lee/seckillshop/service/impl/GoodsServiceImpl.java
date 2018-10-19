@@ -12,6 +12,7 @@ import com.lee.seckillshop.model.GoodsCatalog;
 import com.lee.seckillshop.model.SeckillGood;
 import com.lee.seckillshop.service.GoodsService;
 import com.lee.seckillshop.vo.GoodSolrDocument;
+import com.lee.seckillshop.vo.SeckillGoodVo;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -40,18 +41,17 @@ public class GoodsServiceImpl implements GoodsService {
     private GoodsMapper goodsMapper;
     @Override
     public Map<String, Object> showIndex(Pageable pageable) throws Exception {
-        Map map = jedisTemplate.get("index:info", Map.class);
+        Map map = jedisTemplate.get("index:info:page="+pageable.getPageNumber(), Map.class);
         HashMap<String, Object> info = new HashMap<>();
         if(map==null||map.size()==0){
             PageHelper.startPage(pageable.getPageNumber(),pageable.getPageSize());
-//            List<GoodsCatalog> allGoodsCatalog = catalogMapper.findAllGoodsCatalog();
-            //PageInfo<GoodsCatalog> pageInfo = new PageInfo<>(allGoodsCatalog);
             List<Goods> popularGoods = goodsMapper.findTop4ByWeight();
             PageInfo<Goods> pageInfo = new PageInfo<>(popularGoods);
             info.put("goods",pageInfo);
-            info.put("seckillGoods",seckillGoodsMapper.seckillGoodList());
+            List<SeckillGoodVo> seckillGoods = seckillGoodsMapper.seckillGoodListTop4();
+            info.put("seckillGoods",addStartTimeAndFinishedTime(seckillGoods));
             info.put("catalogs",catalogMapper.findAllCatalog());
-            jedisTemplate.set("index:info",info,5);
+            jedisTemplate.set("index:info:page="+pageable.getPageNumber(),info,5);
             return info;
         }else {
             return map;
@@ -68,4 +68,16 @@ public class GoodsServiceImpl implements GoodsService {
         return goodSolrDocumentRepository.findByGoodInfoOrGoodNameLike(info,info1,pageable);
     }
 
+    /**
+     * 添加秒杀开始时间和时间
+     * @param seckillGoods
+     * @return
+     */
+    private List<SeckillGoodVo> addStartTimeAndFinishedTime(List<SeckillGoodVo> seckillGoods){
+        for (SeckillGoodVo seckillGood : seckillGoods) {
+            seckillGood.setFinishedTime(seckillGood.getEndTime().getTime());
+            seckillGood.setStartTime(seckillGood.getCreateTime().getTime());
+        }
+        return seckillGoods;
+    }
 }

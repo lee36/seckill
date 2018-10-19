@@ -48,7 +48,13 @@ public class UserServiceImpl implements UserService {
             Map userInfo = getUserWxInfo(access_token,openId);
             //解析map
             String nickName=(String)userInfo.get("nickname");
+            String province=(String)userInfo.get("province");
+            String city=(String)userInfo.get("city");
+            String country=(String)userInfo.get("country");
             nickName= new String(nickName.getBytes("ISO8859-1"), "UTF-8");
+            province= new String(province.getBytes("ISO8859-1"), "UTF-8");
+            city= new String(city.getBytes("ISO8859-1"), "UTF-8");
+            country=new String(country.getBytes("ISO8859-1"), "UTF-8");
             int sex= (int) userInfo.get("sex");
             String headImg= (String) userInfo.get("headimgurl");
             User wxUser = new User();
@@ -56,6 +62,7 @@ public class UserServiceImpl implements UserService {
             wxUser.setOpenId(openId);
             wxUser.setSex(sex);
             wxUser.setNickname(nickName);
+            wxUser.setAddress(province+"-"+city+"-"+country);
             userMapper.saveUser(wxUser);
             String token2 = JwtUtil.genaratorToken(wxUser);
             map.put("user",wxUser);
@@ -108,5 +115,10 @@ public class UserServiceImpl implements UserService {
         String str = restTemplate.getForObject(realUserInfoUrl, String.class);
         Map map = JsonUtil.json2Obj(str, Map.class);
         return map;
+    }
+
+    @Override
+    public User findById(Integer id){
+        return userMapper.findById(id);
     }
 }

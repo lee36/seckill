@@ -28,4 +28,6 @@ public interface UserMapper {
    @Select("select * from user_tb where email=#{email}")
    public User findByEmail(String email);
 
+   @Select("select * from user_tb where id=#{id}")
+   public User findById(Integer id);
 }

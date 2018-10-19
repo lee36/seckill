@@ -1,10 +1,10 @@
 package com.lee.seckillshop.mapper;
 
 import com.lee.seckillshop.model.SeckillGood;
-import org.apache.ibatis.annotations.Many;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
+import com.lee.seckillshop.vo.SeckillGoodVo;
+import org.apache.ibatis.annotations.*;
 
+import java.util.LinkedHashMap;
 import java.util.List;
 
 /**
@@ -14,5 +14,11 @@ import java.util.List;
 @Mapper
 public interface SeckillGoodsMapper {
     @Select("SELECT * FROM seckill_good_tb LIMIT 4")
-    public List<SeckillGood> seckillGoodList();
+    public List<SeckillGoodVo> seckillGoodListTop4();
+    @Select("select * from seckill_good_tb")
+    public List<LinkedHashMap<String,Object>> seckillGoodsList();
+    @Select("select * from seckill_good_tb where id=#{seckGoodId}")
+    public SeckillGood findSeckillGood(Integer seckGoodId);
+    @Update("update seckill_good_tb set stock=stock-1 where id=#{id}")
+    public void updateStockWithOne(@Param("id") Integer id);
 }

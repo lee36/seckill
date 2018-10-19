@@ -72,7 +72,7 @@ create table if not exists `order_tb`(
     `create_time` timestamp on update current_timestamp default current_timestamp  comment '订单创建时间',
     `user_id` int comment '用户id(外键)表明谁下的单',
     `total_price` int comment '订单总金额(单位分)',
-    `status` int comment '订单状态:1.支付，2未支付',
+    `status` int default 2 comment '订单状态:1.支付，2未支付',
     `order_detail_id` int comment '订单详情id(外键)',
      INDEX idx(`id`),
      INDEX useridx(`user_id`)
@@ -115,6 +115,8 @@ create table if not exists `seckill_order_tb`(
    `price` int comment '商品价格',
    `user_id` int comment '下单用户的id(外键)',
    `create_time` timestamp default current_timestamp  comment '下单时间',
+   `address` varchar(255) comment '收货地址',
+   `status` int default 2 comment '1代表支付,2代表未支付',
    INDEX idx(`id`),
    INDEX useridx(`user_id`)
 )ENGINE=INNODB DEFAULT CHARSET=utf8;
