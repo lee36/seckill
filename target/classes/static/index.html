@@ -15,22 +15,22 @@
 <script>
     $(function(){
         var socket = new SockJS('http://localhost:8080/seckill-shop');
-        var stompClient = Stomp.over(socket);
-        $("#cli").on("click",function(){
-            var msg_text = $("#tel");
-            var text=msg_text.val();
-            stompClient.send("/messageReciver",{},JSON.stringify({'msg':text}));
-        });
-        //订阅者接受消息
-        stompClient.connect({}, function(frame) {
-            // 注册发送消息
-            stompClient.subscribe('/seckill/123', function(data) {
-                var str=data.body;
-              //  alert(str)
-              //  alert(str)
-                var obj=JSON.parse(str);
-                alert(obj)
+            var stompClient = Stomp.over(socket);
+            $("#cli").on("click",function(){
+                var msg_text = $("#tel");
+                var text=msg_text.val();
+                stompClient.send("/messageReciver",{},JSON.stringify({'msg':text}));
             });
+            //订阅者接受消息
+            stompClient.connect({}, function(frame) {
+                // 注册发送消息
+                stompClient.subscribe('/seckill/123', function(data) {
+                    var str=data.body;
+                    //  alert(str)
+                    //  alert(str)
+                    var obj=JSON.parse(str);
+                    alert(obj)
+                });
         });
     })
 </script>

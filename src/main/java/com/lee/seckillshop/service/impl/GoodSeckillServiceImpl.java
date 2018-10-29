@@ -62,7 +62,6 @@ public class GoodSeckillServiceImpl implements GoodSeckillService {
      * @param seckGoodId
      */
     public void createOrder(Integer userId, Integer seckGoodId) throws Exception {
-        System.out.println(userId+":"+seckGoodId);
         SeckillGood seckillGood=seckillGoodsMapper.findSeckillGood(seckGoodId);
         SeckillOrder seckillOrder = new SeckillOrder();
         User user = new User();
@@ -72,7 +71,6 @@ public class GoodSeckillServiceImpl implements GoodSeckillService {
         seckillOrder.setId(CommonUtil.generateUUID());
         seckillOrder.setUser(user);
         //生成订单
-        System.out.println(1);
         seckillOrderMapper.saveSeckillOrder(seckillOrder);
         //缓存相应数量减少
         jedisTemplate.decr("seckill:stock:id:"+seckGoodId);
