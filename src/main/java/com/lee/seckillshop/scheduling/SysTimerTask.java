@@ -53,6 +53,9 @@ public class SysTimerTask {
     public void addGoods2SolrDocument(){
         //从数据库中加载所有Goods
         List<Goods> allGoods = goodsMapper.findAllGoods();
+        if(allGoods.size()<=0){
+            return ;
+        }
         List<GoodSolrDocument> allSolrGoods = new ArrayList<>();
         for (Goods goods:allGoods){
             GoodSolrDocument goodSolrDocument = new GoodSolrDocument();

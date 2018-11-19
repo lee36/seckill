@@ -73,7 +73,6 @@ create table if not exists `order_tb`(
     `user_id` int comment '用户id(外键)表明谁下的单',
     `total_price` int comment '订单总金额(单位分)',
     `status` int default 2 comment '订单状态:1.支付，2未支付',
-    `order_detail_id` int comment '订单详情id(外键)',
      INDEX idx(`id`),
      INDEX useridx(`user_id`)
 )ENGINE=INNODB DEFAULT CHARSET=utf8;
@@ -81,11 +80,12 @@ create table if not exists `order_tb`(
 订单详情
 */
 create table if not exists `order_detail_tb`(
-   `id` varchar(255) primary key comment '订单详情编号',
+   `id` int auto_increment primary key comment '订单详情编号',
    `name` varchar(255) comment '商品名称',
    `num` int comment '购买数量',
    `price` int comment '商品总价',
    `good_img` varchar(255) comment '商品图片',
+   `order_id` varchar(255) comment '订单id',
     INDEX idx(`id`)
 )ENGINE=INNODB DEFAULT CHARSET=utf8;
 /**
@@ -140,5 +140,16 @@ create table if not exists `flow_tb`(
   `id` int auto_increment primary key comment '流量表id',
   `num` bigint comment '访问量',
   `login_time` TIMESTAMP comment '登陆时间',
+  INDEX idx(`id`)
+)ENGINE=INNODB DEFAULT CHARSET=utf8;
+/**
+ 订单收货表
+ */
+create table if not exists `reciver_info_tb`(
+  `id` int auto_increment primary key comment '收货表Id',
+  `address` varchar(255) comment '收货地址',
+  `telephone` varchar(255) comment '手机号码',
+  `order_id` varchar(255) comment '订单id',
+  `type` int comment '订单类型,1代表普通订单,2代表秒杀订单',
   INDEX idx(`id`)
 )ENGINE=INNODB DEFAULT CHARSET=utf8;

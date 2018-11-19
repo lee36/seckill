@@ -29,5 +29,4 @@ public class Order {
   private User user;
   private Integer totalPrice;
   private Integer status;
-  private OrderDetail orderDetail;
 }

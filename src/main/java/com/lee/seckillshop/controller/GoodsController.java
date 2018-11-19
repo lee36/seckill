@@ -31,6 +31,7 @@ public class GoodsController {
     private GoodsService goodsService;
     @RequestMapping("/showIndex")
     public Object showIndex(@PageableDefault(page = 1,size = 4) Pageable pageable) throws Exception {
+        System.out.println("=============");
         Map<String, Object> map = goodsService.showIndex(pageable);
 
         if(map==null||map.size()==0){

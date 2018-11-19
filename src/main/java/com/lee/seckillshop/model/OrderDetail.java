@@ -23,9 +23,10 @@ INDEX orderidx(`order_id`)
 @AllArgsConstructor
 @NoArgsConstructor
 public class OrderDetail {
-   private String id;
+   private Integer id;
    private String name;
    private Integer num;
    private Integer price;
    private String goodImg;
+   private Order order;
 }

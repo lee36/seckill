@@ -9,8 +9,5 @@
         <module name="seckill-shop" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="seckill-shop" target="1.8" />
-    </bytecodeTargetLevel>
   </component>
 </project>

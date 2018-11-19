@@ -1,5 +1,6 @@
 package com.lee.seckillshop.controller;
 
+import com.lee.seckillshop.exception.PayUnkownException;
 import com.lee.seckillshop.exception.SeckillGoodIdNotExistException;
 import com.lee.seckillshop.exception.SeckillGoodStatusNotExistException;
 import com.lee.seckillshop.exception.SeckillUserIdNotExistException;
@@ -25,8 +26,10 @@ public class GlobleExceptionController {
             return new ResultResponse(502,e.getMessage(),null);
         }else if(e instanceof SeckillGoodStatusNotExistException){
             return new ResultResponse(503,e.getMessage(),null);
+        }else if(e instanceof PayUnkownException){
+            return new ResultResponse(600,e.getMessage(),null);
         }else{
-            return new ResultResponse(504,"抢购时发生未知错误",null);
+            return new ResultResponse(504,"网络不稳定哟",null);
         }
     }
 }

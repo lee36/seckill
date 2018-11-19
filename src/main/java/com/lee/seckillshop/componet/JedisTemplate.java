@@ -9,6 +9,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.support.TransactionTemplate;
 import redis.clients.jedis.JedisCluster;
 
+import java.io.IOException;
+
 /**
  * @author admin
  * @date 2018-09-19
@@ -85,5 +87,11 @@ public class JedisTemplate {
      */
     public void delete(String key){
         jedisCluster.del(key);
+    }
+    /**
+     * 释放资源
+     */
+    public void release() throws IOException {
+        jedisCluster.close();
     }
 }
