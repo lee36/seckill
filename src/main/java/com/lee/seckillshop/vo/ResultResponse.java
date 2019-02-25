@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ResultResponse {
-   private int code;
-   private String msg;
-   private Object data;
+    private int code;
+    private String msg;
+    private Object data;
 }

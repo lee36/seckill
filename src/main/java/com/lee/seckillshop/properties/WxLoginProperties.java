@@ -12,10 +12,10 @@ import org.springframework.stereotype.Component;
 @Component
 @Data
 public class WxLoginProperties {
-   private String appId;
-   private String appSecret;
-   private String redictUrl;
-   private String loginUrl;
-   private String accessTokenUrl;
-   private String userInfoUrl;
+    private String appId;
+    private String appSecret;
+    private String redictUrl;
+    private String loginUrl;
+    private String accessTokenUrl;
+    private String userInfoUrl;
 }

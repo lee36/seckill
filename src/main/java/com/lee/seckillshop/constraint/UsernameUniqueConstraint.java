@@ -14,13 +14,14 @@ import javax.validation.ConstraintValidatorContext;
  * @date 2018-09-26
  */
 @Component
-public class UsernameUniqueConstraint implements ConstraintValidator<UsernameUnique,String> {
+public class UsernameUniqueConstraint implements ConstraintValidator<UsernameUnique, String> {
     @Autowired
     private UserMapper userMapper;
+
     @Override
     public boolean isValid(String s, ConstraintValidatorContext constraintValidatorContext) {
         User user = userMapper.findByUsername(s);
-        if(user!=null){
+        if (user != null) {
             return false;
         }
         return true;

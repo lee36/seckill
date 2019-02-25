@@ -15,6 +15,6 @@ import javax.validation.constraints.NotNull;
 @NoArgsConstructor
 @AllArgsConstructor
 public class PasswordValidate {
-  private String password;
-  private String rePassword;
+    private String password;
+    private String rePassword;
 }

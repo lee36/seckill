@@ -12,10 +12,10 @@ import org.springframework.stereotype.Component;
 @Component
 @Data
 public class WxPayProperties {
-   private String appId;
-   private String appSecret;
-   private String merId;
-   private String key;
-   private String backUrl;
-   private String payUrl;
+    private String appId;
+    private String appSecret;
+    private String merId;
+    private String key;
+    private String backUrl;
+    private String payUrl;
 }

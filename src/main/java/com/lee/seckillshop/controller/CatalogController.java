@@ -18,12 +18,13 @@ import java.util.List;
 public class CatalogController {
     @Autowired
     private CatalogService catalogService;
+
     @RequestMapping("/all")
-    public Object getAllCatalogs(){
+    public Object getAllCatalogs() {
         List<GoodsCatalog> allCatalog = catalogService.getAllCatalog();
-        if(allCatalog!=null){
-            return new ResultResponse(0,"获取成功",allCatalog);
+        if (allCatalog != null) {
+            return new ResultResponse(0, "获取成功", allCatalog);
         }
-        return new ResultResponse(501,"获取失败",null);
+        return new ResultResponse(501, "获取失败", null);
     }
 }

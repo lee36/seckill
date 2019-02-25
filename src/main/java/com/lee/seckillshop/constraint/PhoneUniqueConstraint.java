@@ -14,13 +14,14 @@ import javax.validation.ConstraintValidatorContext;
  * @date 2018-09-27
  */
 @Component
-public class PhoneUniqueConstraint implements ConstraintValidator<PhoneUnique,String> {
+public class PhoneUniqueConstraint implements ConstraintValidator<PhoneUnique, String> {
     @Autowired
     private UserMapper userMapper;
+
     @Override
     public boolean isValid(String value, ConstraintValidatorContext context) {
         User user = userMapper.findByPhone(value);
-        if(user!=null){
+        if (user != null) {
             return false;
         }
         return true;

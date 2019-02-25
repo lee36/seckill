@@ -20,27 +20,28 @@ import javax.servlet.http.HttpServletResponse;
  */
 @Component
 public class RegistIntercepter implements HandlerInterceptor {
-   @Autowired
-   private JedisTemplate jedisTemplate;
-   private static final Integer SECONDVISITED=1;
-   @Override
-   public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-      //获取ip地址
-      String ip=IpUtils.getIpAddr(request);
-      Integer num = jedisTemplate.get(ip, Integer.class);
-      if(num==null){
-         jedisTemplate.set(ip,1,3);
-         return true;
-      }
-      if(SECONDVISITED.equals(num)){
-           ResultResponse resultResponse = new ResultResponse(505,"你操作过快请休息下", null);
-           String s = JsonUtil.obj2Json(resultResponse);
-           response.setContentType("application/json;charset=UTF-8");
-           response.getWriter().write(s);
-           return false;
-       }
-       Long incr = jedisTemplate.incr(ip);
-      return true;
-   }
+    @Autowired
+    private JedisTemplate jedisTemplate;
+    private static final Integer SECONDVISITED = 1;
+
+    @Override
+    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+        //获取ip地址
+        String ip = IpUtils.getIpAddr(request);
+        Integer num = jedisTemplate.get(ip, Integer.class);
+        if (num == null) {
+            jedisTemplate.set(ip, 1, 3);
+            return true;
+        }
+        if (SECONDVISITED.equals(num)) {
+            ResultResponse resultResponse = new ResultResponse(505, "你操作过快请休息下", null);
+            String s = JsonUtil.obj2Json(resultResponse);
+            response.setContentType("application/json;charset=UTF-8");
+            response.getWriter().write(s);
+            return false;
+        }
+        Long incr = jedisTemplate.incr(ip);
+        return true;
+    }
 
 }

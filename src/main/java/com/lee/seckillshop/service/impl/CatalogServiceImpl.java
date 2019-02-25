@@ -16,6 +16,7 @@ import java.util.List;
 public class CatalogServiceImpl implements CatalogService {
     @Autowired
     private CatalogMapper catalogMapper;
+
     @Override
     public List<GoodsCatalog> getAllCatalog() {
         return catalogMapper.findAllCatalog();

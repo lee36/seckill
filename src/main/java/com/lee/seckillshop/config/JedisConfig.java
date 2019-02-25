@@ -26,15 +26,16 @@ public class JedisConfig {
 
     /**
      * 注入jedis集群配置
+     *
      * @return
      */
     @Bean
-    public JedisCluster jedisCluster(){
+    public JedisCluster jedisCluster() {
         List<String> nodes = jedisProperties.getNodes();
         Set<HostAndPort> ipAddr = new HashSet<>();
         for (String node : nodes) {
             String[] hostPort = node.split(":");
-            HostAndPort hostAndPort = new HostAndPort(hostPort[0],Integer.parseInt(hostPort[1]));
+            HostAndPort hostAndPort = new HostAndPort(hostPort[0], Integer.parseInt(hostPort[1]));
             ipAddr.add(hostAndPort);
         }
         JedisCluster cluster = new JedisCluster(ipAddr);

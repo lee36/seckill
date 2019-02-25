@@ -5,32 +5,32 @@
     <title>index</title>
 </head>
 <body>
-     欢迎来到主页!
-     <input type="text" id="tel"/>
-     <button id="cli">点我</button>
+欢迎来到主页!
+<input type="text" id="tel"/>
+<button id="cli">点我</button>
 
 <script src="http://localhost:8080/jquery-3.1.1.min.js"></script>
 <script src="http://localhost:8080/sockjs.min.js"></script>
 <script src="http://localhost:8080/stomp.min.js"></script>
 <script>
-    $(function(){
+    $(function () {
         var socket = new SockJS('http://localhost:8080/seckill-shop');
-            var stompClient = Stomp.over(socket);
-            $("#cli").on("click",function(){
-                var msg_text = $("#tel");
-                var text=msg_text.val();
-                stompClient.send("/messageReciver",{},JSON.stringify({'msg':text}));
+        var stompClient = Stomp.over(socket);
+        $("#cli").on("click", function () {
+            var msg_text = $("#tel");
+            var text = msg_text.val();
+            stompClient.send("/messageReciver", {}, JSON.stringify({'msg': text}));
+        });
+        //订阅者接受消息
+        stompClient.connect({}, function (frame) {
+            // 注册发送消息
+            stompClient.subscribe('/seckill/123', function (data) {
+                var str = data.body;
+                //  alert(str)
+                //  alert(str)
+                var obj = JSON.parse(str);
+                alert(obj)
             });
-            //订阅者接受消息
-            stompClient.connect({}, function(frame) {
-                // 注册发送消息
-                stompClient.subscribe('/seckill/123', function(data) {
-                    var str=data.body;
-                    //  alert(str)
-                    //  alert(str)
-                    var obj=JSON.parse(str);
-                    alert(obj)
-                });
         });
     })
 </script>

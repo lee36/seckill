@@ -12,22 +12,22 @@ import org.springframework.stereotype.Service;
 @Mapper
 public interface UserMapper {
 
-   @Select("select * from user_tb where open_id=#{openId}")
-   public User findByOpenId(String openId);
+    @Select("select * from user_tb where open_id=#{openId}")
+    public User findByOpenId(String openId);
 
-   @Options(useGeneratedKeys = true,keyColumn = "id")
-   @InsertProvider(type = UserInsertProvider.class,method = "save")
-   public int saveUser(User user);
+    @Options(useGeneratedKeys = true, keyColumn = "id")
+    @InsertProvider(type = UserInsertProvider.class, method = "save")
+    public int saveUser(User user);
 
-   @Select("select * from user_tb where username=#{username}")
-   public User findByUsername(String username);
+    @Select("select * from user_tb where username=#{username}")
+    public User findByUsername(String username);
 
-   @Select("select * from user_tb where phone=#{phone}")
-   public User findByPhone(String phone);
+    @Select("select * from user_tb where phone=#{phone}")
+    public User findByPhone(String phone);
 
-   @Select("select * from user_tb where email=#{email}")
-   public User findByEmail(String email);
+    @Select("select * from user_tb where email=#{email}")
+    public User findByEmail(String email);
 
-   @Select("select * from user_tb where id=#{id}")
-   public User findById(Integer id);
+    @Select("select * from user_tb where id=#{id}")
+    public User findById(Integer id);
 }

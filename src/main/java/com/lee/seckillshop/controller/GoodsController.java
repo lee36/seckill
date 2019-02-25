@@ -29,35 +29,36 @@ import java.util.Map;
 public class GoodsController {
     @Autowired
     private GoodsService goodsService;
+
     @RequestMapping("/showIndex")
-    public Object showIndex(@PageableDefault(page = 1,size = 4) Pageable pageable) throws Exception {
-        System.out.println("=============");
+    public Object showIndex(@PageableDefault(page = 1, size = 4) Pageable pageable) throws Exception {
         Map<String, Object> map = goodsService.showIndex(pageable);
 
-        if(map==null||map.size()==0){
-            return new ResultResponse(5002,"数据异常",null);
+        if (map == null || map.size() == 0) {
+            return new ResultResponse(5002, "数据异常", null);
         }
-        return new ResultResponse(0,"加载成功",map);
+        return new ResultResponse(0, "加载成功", map);
     }
+
     @RequestMapping("/search")
-    public Object searchGoods(String info,@PageableDefault(page = 0,size = 5) Pageable pageable) throws Exception {
-        Page page=null;
+    public Object searchGoods(String info, @PageableDefault(page = 0, size = 5) Pageable pageable) throws Exception {
+        Page page = null;
         HashMap<String, Object> maps = new HashMap<>();
-        if(StringUtils.isEmpty(info)){
-            page=goodsService.findAllSolrGoods(pageable);
-        }else{
-            page=goodsService.findByInfo(info,info,pageable);
+        if (StringUtils.isEmpty(info)) {
+            page = goodsService.findAllSolrGoods(pageable);
+        } else {
+            page = goodsService.findByInfo(info, info, pageable);
         }
         ParseSolrDocumentUtil.parseHightLight(GoodSolrDocument.class, page);
         List content = page.getContent();
-        if(content==null||content.size()==0){
-            return new ResultResponse(501,"没有数据加载",null);
+        if (content == null || content.size() == 0) {
+            return new ResultResponse(501, "没有数据加载", null);
         }
-        maps.put("content",content);
-        maps.put("totalPage",page.getTotalPages());
-        maps.put("page",page.getNumber());
-        maps.put("size",page.getSize());
-        return new ResultResponse(0,"请求成功",maps);
+        maps.put("content", content);
+        maps.put("totalPage", page.getTotalPages());
+        maps.put("page", page.getNumber());
+        maps.put("size", page.getSize());
+        return new ResultResponse(0, "请求成功", maps);
     }
 
 }

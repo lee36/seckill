@@ -17,22 +17,22 @@ import org.springframework.data.solr.core.mapping.SolrDocument;
 @AllArgsConstructor
 @NoArgsConstructor
 public class GoodSolrDocument {
-   @Field("id")
-   @Id
-   private String id;
-   @Field("good_name")
-   private String goodName;
-   @Field("good_price")
-   private Integer goodPrice;
-   @Field("good_stock")
-   private Integer goodStock;
-   @Field("weight")
-   private Integer weight;
-   @Field("good_info")
-   private String goodInfo;
-   @Field("good_img")
-   private String goodImg;
-   @Field("good_store_id")
-   private Integer storeId;
+    @Field("id")
+    @Id
+    private String id;
+    @Field("good_name")
+    private String goodName;
+    @Field("good_price")
+    private Integer goodPrice;
+    @Field("good_stock")
+    private Integer goodStock;
+    @Field("weight")
+    private Integer weight;
+    @Field("good_info")
+    private String goodInfo;
+    @Field("good_img")
+    private String goodImg;
+    @Field("good_store_id")
+    private Integer storeId;
 
 }

@@ -20,14 +20,14 @@ public class TokenInterceper implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         String param_token = request.getParameter("token");
-        String head_token=request.getHeader("token");
-        if(param_token==null|| JwtUtil.parseToken(param_token)==null){
-            if(head_token==null|| JwtUtil.parseToken(head_token)==null){
+        String head_token = request.getHeader("token");
+        if (param_token == null || JwtUtil.parseToken(param_token) == null) {
+            if (head_token == null || JwtUtil.parseToken(head_token) == null) {
                 ResultResponse result = new ResultResponse(503, "请登陆", null);
                 String s = JsonUtil.obj2Json(param_token);
                 response.getWriter().write(s);
                 return false;
-            }else{
+            } else {
                 return true;
             }
         }

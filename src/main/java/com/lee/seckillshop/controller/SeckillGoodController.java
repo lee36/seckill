@@ -30,45 +30,47 @@ public class SeckillGoodController {
     private SimpMessagingTemplate simpMessagingTemplate;
     @Autowired
     private JedisTemplate jedisTemplate;
+
     @PostMapping("/good")
     public Object seckillGood(@RequestParam("userId") Integer userId,
-                              @RequestParam("seckGoodId") Integer seckGoodId,@RequestParam("status") Integer staus) throws Exception {
+                              @RequestParam("seckGoodId") Integer seckGoodId, @RequestParam("status") Integer staus) throws Exception {
         User user = userService.findById(userId);
-        if(user==null){
+        if (user == null) {
             throw new SeckillUserIdNotExistException("用户不存在");
         }
-        if(staus.equals(0)||staus.equals(2)||staus<0&&staus>2){
+        if (staus.equals(0) || staus.equals(2) || staus < 0 && staus > 2) {
             throw new SeckillUserIdNotExistException("秒杀商品状态异常");
         }
         boolean flag = goodSeckillService.seckillGood(seckGoodId, userId);
         //查找缓存中是否有redis
-        boolean b=findSeckillGoodInRedis(seckGoodId);
-        if(!b){
+        boolean b = findSeckillGoodInRedis(seckGoodId);
+        if (!b) {
             throw new SeckillUserIdNotExistException("秒杀商品不存在");
         }
-        if(flag){
+        if (flag) {
             //直接返回结果
-            return new ResultResponse(0,"正在抢购中",null);
+            return new ResultResponse(0, "正在抢购中", null);
         }
-        return new ResultResponse(505,"抢购失败",null);
+        return new ResultResponse(505, "抢购失败", null);
     }
 
     /**
      * 缓存中查找
+     *
      * @param seckGoodId
      * @return
      */
     private boolean findSeckillGoodInRedis(Integer seckGoodId) throws Exception {
         List<LinkedHashMap<String, Object>> seckillGoods = jedisTemplate.get("seckill:goods", List.class);
         long count = seckillGoods.stream().filter(each -> {
-           return each.get("id").equals(seckGoodId);
+            return each.get("id").equals(seckGoodId);
         }).count();
-        return count==1?true:false;
+        return count == 1 ? true : false;
     }
 
     @MessageMapping("/messageReciver")
-    public void messageReciver(String msg){
-        System.out.println(msg+"==========");
-        simpMessagingTemplate.convertAndSend("/seckill/123",msg+"hahah");
+    public void messageReciver(String msg) {
+        System.out.println(msg + "==========");
+        simpMessagingTemplate.convertAndSend("/seckill/123", msg + "hahah");
     }
 }

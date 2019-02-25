@@ -15,7 +15,7 @@ import java.util.List;
  * 商品的solr操作接口
  */
 @Repository
-public interface GoodSolrDocumentRepository extends SolrCrudRepository<GoodSolrDocument,String> {
-    @Highlight(prefix = "<font color='red'>",postfix = "</font>")
-    public Page<GoodSolrDocument> findByGoodInfoOrGoodNameLike(String info,String info1,Pageable pageable);
+public interface GoodSolrDocumentRepository extends SolrCrudRepository<GoodSolrDocument, String> {
+    @Highlight(prefix = "<font color='red'>", postfix = "</font>")
+    public Page<GoodSolrDocument> findByGoodInfoOrGoodNameLike(String info, String info1, Pageable pageable);
 }

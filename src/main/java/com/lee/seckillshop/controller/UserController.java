@@ -30,44 +30,45 @@ import java.util.Map;
 @RequestMapping("/user")
 public class UserController {
 
-   @Autowired
-   public UserService userService;
+    @Autowired
+    public UserService userService;
 
-   @PostMapping("/login")
-   public Object login(@Valid UserLoginForm user,BindingResult result){
-       if(result.hasErrors()){
-           Map<String, String> map = ValidateErrorUtil.buildeError(result);
-           return  new ResultResponse(501,"输入格式有误",map);
-       }
-       Map<String,Object> exits = userService.userLogin(user);
-       if(exits!=null){
-           return new ResultResponse(0,"登陆成功",exits);
-       }
-       return new ResultResponse(502,"账号或者密码错误",null);
-   }
-
-   @PostMapping("/regist")
-    public Object regist(@Valid UserRegistForm user, BindingResult result) throws Exception {
-       if(result.hasErrors()){
-           Map<String, String> map = ValidateErrorUtil.buildeError(result);
-           return  new ResultResponse(501,"注册失败",map);
-       }
-       User register=userService.userRegist(user);
-       if(register!=null){
-           return new ResultResponse(0,"注册成功",register);
-       }
-       return new ResultResponse(502,"注册失败",null);
-   }
-    @RequestMapping("/parse")
-    public Object parseToken(String token){
-       if(StringUtils.isEmpty(token)){
-           return new ResultResponse(501,"未登录",null);
-       }
-        Claims claims = JwtUtil.parseToken(token);
-        if(claims==null){
-            return new ResultResponse(501,"未登录",null);
+    @PostMapping("/login")
+    public Object login(@Valid UserLoginForm user, BindingResult result) {
+        if (result.hasErrors()) {
+            Map<String, String> map = ValidateErrorUtil.buildeError(result);
+            return new ResultResponse(501, "输入格式有误", map);
         }
-        return new ResultResponse(0,"解析成功",JwtUtil.parseToken(token));
+        Map<String, Object> exits = userService.userLogin(user);
+        if (exits != null) {
+            return new ResultResponse(0, "登陆成功", exits);
+        }
+        return new ResultResponse(502, "账号或者密码错误", null);
+    }
+
+    @PostMapping("/regist")
+    public Object regist(@Valid UserRegistForm user, BindingResult result) throws Exception {
+        if (result.hasErrors()) {
+            Map<String, String> map = ValidateErrorUtil.buildeError(result);
+            return new ResultResponse(501, "注册失败", map);
+        }
+        User register = userService.userRegist(user);
+        if (register != null) {
+            return new ResultResponse(0, "注册成功", register);
+        }
+        return new ResultResponse(502, "注册失败", null);
+    }
+
+    @RequestMapping("/parse")
+    public Object parseToken(String token) {
+        if (StringUtils.isEmpty(token)) {
+            return new ResultResponse(501, "未登录", null);
+        }
+        Claims claims = JwtUtil.parseToken(token);
+        if (claims == null) {
+            return new ResultResponse(501, "未登录", null);
+        }
+        return new ResultResponse(0, "解析成功", JwtUtil.parseToken(token));
     }
 
 }

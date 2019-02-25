@@ -28,18 +28,21 @@ public class WebConfig implements WebMvcConfigurer {
     private RegistIntercepter registIntercepter;
     @Autowired
     private TokenInterceper tokenInterceper;
+
     /**
      * 添加拦截器
+     *
      * @param registry
      */
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-      registry.addInterceptor(registIntercepter).addPathPatterns("/user/regist");
-      registry.addInterceptor(tokenInterceper).addPathPatterns("/seckill/**");
+        registry.addInterceptor(registIntercepter).addPathPatterns("/user/regist");
+        registry.addInterceptor(tokenInterceper).addPathPatterns("/seckill/**");
     }
 
     /**
      * 配置跨域
+     *
      * @param registry
      */
     @Override
@@ -47,8 +50,10 @@ public class WebConfig implements WebMvcConfigurer {
         registry.addMapping("/**").
                 allowedMethods("*").allowedOrigins("*");
     }
+
     /**
      * 配置pageable相关的参数注入
+     *
      * @param resolvers
      */
     @Override
@@ -59,10 +64,11 @@ public class WebConfig implements WebMvcConfigurer {
 
     /**
      * 设置restTemplate用于构建请求
+     *
      * @return
      */
     @Bean
-    public RestTemplate restTemplate(){
+    public RestTemplate restTemplate() {
         return new RestTemplate();
     }
 

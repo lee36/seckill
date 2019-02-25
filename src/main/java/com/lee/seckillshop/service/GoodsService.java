@@ -14,7 +14,9 @@ import java.util.Map;
  * @date 2018-09-30
  */
 public interface GoodsService {
-    public Map<String,Object> showIndex(Pageable pageable) throws Exception;
+    public Map<String, Object> showIndex(Pageable pageable) throws Exception;
+
     public Page<GoodSolrDocument> findAllSolrGoods(Pageable pageable);
-    public Page<GoodSolrDocument> findByInfo(String info,String info1,Pageable pageable);
+
+    public Page<GoodSolrDocument> findByInfo(String info, String info1, Pageable pageable);
 }

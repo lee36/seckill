@@ -15,16 +15,16 @@ import javax.validation.ConstraintValidatorContext;
  * 两次密码输入的一样的验证具体实现
  */
 @Component
-public class PasswordComfirmConstraint implements ConstraintValidator<PasswordComfirm,PasswordValidate> {
+public class PasswordComfirmConstraint implements ConstraintValidator<PasswordComfirm, PasswordValidate> {
 
     @Override
     public boolean isValid(PasswordValidate passwordValidate, ConstraintValidatorContext constraintValidatorContext) {
-        if(passwordValidate==null){
-           return false;
+        if (passwordValidate == null) {
+            return false;
         }
         String password = passwordValidate.getPassword();
-        String rePassword=passwordValidate.getRePassword();
-        if(password!=null&&password.equals(rePassword)){
+        String rePassword = passwordValidate.getRePassword();
+        if (password != null && password.equals(rePassword)) {
             return true;
         }
         return false;

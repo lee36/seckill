@@ -15,13 +15,14 @@ import javax.validation.ConstraintValidatorContext;
  * 验证邮箱唯一的具体实现
  */
 @Component
-public class EmailUniqueConstraint implements ConstraintValidator<EmailUnique,String> {
+public class EmailUniqueConstraint implements ConstraintValidator<EmailUnique, String> {
     @Autowired
     private UserMapper userMapper;
+
     @Override
     public boolean isValid(String value, ConstraintValidatorContext context) {
         User user = userMapper.findByEmail(value);
-        if(user!=null){
+        if (user != null) {
             return false;
         }
         return true;

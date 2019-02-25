@@ -40,55 +40,55 @@ public class UserServiceImpl implements UserService {
     private JedisTemplate jedisTemplate;
 
     @Override
-    public Map<String,Object> inferUserExits(String openId,String access_token) throws Exception {
+    public Map<String, Object> inferUserExits(String openId, String access_token) throws Exception {
         Map<String, Object> map = new HashMap<>();
         User user = userMapper.findByOpenId(openId);
-        if(user==null){
+        if (user == null) {
             //添加这个用户
-            Map userInfo = getUserWxInfo(access_token,openId);
+            Map userInfo = getUserWxInfo(access_token, openId);
             //解析map
-            String nickName=(String)userInfo.get("nickname");
-            String province=(String)userInfo.get("province");
-            String city=(String)userInfo.get("city");
-            String country=(String)userInfo.get("country");
-            nickName= new String(nickName.getBytes("ISO8859-1"), "UTF-8");
-            province= new String(province.getBytes("ISO8859-1"), "UTF-8");
-            city= new String(city.getBytes("ISO8859-1"), "UTF-8");
-            country=new String(country.getBytes("ISO8859-1"), "UTF-8");
-            int sex= (int) userInfo.get("sex");
-            String headImg= (String) userInfo.get("headimgurl");
+            String nickName = (String) userInfo.get("nickname");
+            String province = (String) userInfo.get("province");
+            String city = (String) userInfo.get("city");
+            String country = (String) userInfo.get("country");
+            nickName = new String(nickName.getBytes("ISO8859-1"), "UTF-8");
+            province = new String(province.getBytes("ISO8859-1"), "UTF-8");
+            city = new String(city.getBytes("ISO8859-1"), "UTF-8");
+            country = new String(country.getBytes("ISO8859-1"), "UTF-8");
+            int sex = (int) userInfo.get("sex");
+            String headImg = (String) userInfo.get("headimgurl");
             User wxUser = new User();
             wxUser.setHeadImg(headImg);
             wxUser.setOpenId(openId);
             wxUser.setSex(sex);
             wxUser.setNickname(nickName);
-            wxUser.setAddress(province+"-"+city+"-"+country);
+            wxUser.setAddress(province + "-" + city + "-" + country);
             userMapper.saveUser(wxUser);
             String token2 = JwtUtil.genaratorToken(wxUser);
-            map.put("user",wxUser);
-            map.put("token",token2);
+            map.put("user", wxUser);
+            map.put("token", token2);
             return map;
-        }else{
-           String token1=JwtUtil.genaratorToken(user);
-            map.put("user",user);
-            map.put("token",token1);
+        } else {
+            String token1 = JwtUtil.genaratorToken(user);
+            map.put("user", user);
+            map.put("token", token1);
             return map;
         }
     }
 
     @Override
-    public Map<String,Object> userLogin(UserLoginForm user) {
-        String username=user.getUsername();
-        User exits= userMapper.findByUsername(username);
-        HashMap<String,Object> map=new HashMap<>();
-        if(exits!=null){
+    public Map<String, Object> userLogin(UserLoginForm user) {
+        String username = user.getUsername();
+        User exits = userMapper.findByUsername(username);
+        HashMap<String, Object> map = new HashMap<>();
+        if (exits != null) {
             String dbPass = exits.getPassword();
-            String salt= exits.getSalt();
-            if(PasswordUtil.validtePassword(dbPass,user.getPassword(),salt)){
+            String salt = exits.getSalt();
+            if (PasswordUtil.validtePassword(dbPass, user.getPassword(), salt)) {
                 jedisTemplate.userVisited();
-                map.put("user",exits);
+                map.put("user", exits);
                 String token = JwtUtil.genaratorToken(exits);
-                map.put("token",token);
+                map.put("token", token);
                 return map;
             }
             return null;
@@ -97,28 +97,28 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User userRegist(UserRegistForm user) throws Exception{
+    public User userRegist(UserRegistForm user) throws Exception {
         User register = new User();
-        BeanUtils.copyProperties(user,register);
-        String password=user.getEnsurePassword().getPassword();
-        String salt=CommonUtil.generateUUID();
-        register.setPassword(PasswordUtil.passwordEncode(password,salt));
+        BeanUtils.copyProperties(user, register);
+        String password = user.getEnsurePassword().getPassword();
+        String salt = CommonUtil.generateUUID();
+        register.setPassword(PasswordUtil.passwordEncode(password, salt));
         register.setSalt(salt);
         register.setIdentity(1);
         userMapper.saveUser(register);
         return register;
     }
 
-    private Map getUserWxInfo(String access_token,String openId) throws Exception {
+    private Map getUserWxInfo(String access_token, String openId) throws Exception {
         String userInfoUrl = wxLoginProperties.getUserInfoUrl();
-        String realUserInfoUrl = String.format(userInfoUrl, access_token,openId);
+        String realUserInfoUrl = String.format(userInfoUrl, access_token, openId);
         String str = restTemplate.getForObject(realUserInfoUrl, String.class);
         Map map = JsonUtil.json2Obj(str, Map.class);
         return map;
     }
 
     @Override
-    public User findById(Integer id){
+    public User findById(Integer id) {
         return userMapper.findById(id);
     }
 }

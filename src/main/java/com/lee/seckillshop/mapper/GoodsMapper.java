@@ -16,21 +16,23 @@ import java.util.Set;
 public interface GoodsMapper {
     @Select("SELECT * FROM goods_tb ORDER BY weight")
     @Results({
-            @Result(column = "store_id",property = "store",javaType = Store.class,one = @One(
+            @Result(column = "store_id", property = "store", javaType = Store.class, one = @One(
                     select = "com.lee.seckillshop.mapper.StoreMapper.findById"
             ))
     })
     public List<Goods> findTop4ByWeight();
+
     @Select("select * from goods_tb")
     @Results({
-            @Result(column = "store_id",property = "store",one = @One(
+            @Result(column = "store_id", property = "store", one = @One(
                     select = "com.lee.seckillshop.mapper.StoreMapper.findById"
             ))
     })
     public List<Goods> findAllGoods();
+
     @Select("select * from goods_tb where id=#{id}")
     @Results({
-            @Result(column = "store_id",property = "store",one = @One(
+            @Result(column = "store_id", property = "store", one = @One(
                     select = "com.lee.seckillshop.mapper.StoreMapper.findById"
             ))
     })

@@ -14,14 +14,14 @@ import java.util.Map;
  */
 public class ValidateErrorUtil {
 
-   public static Map<String,String> buildeError(BindingResult result){
-       Map<String, String> errors = new HashMap<>();
-       List<FieldError> fieldErrors = result.getFieldErrors();
-       for (FieldError allError : fieldErrors) {
-           String param = allError.getField();
-           String message = allError.getDefaultMessage();
-           errors.put(param,message);
-       }
-       return errors;
-   }
+    public static Map<String, String> buildeError(BindingResult result) {
+        Map<String, String> errors = new HashMap<>();
+        List<FieldError> fieldErrors = result.getFieldErrors();
+        for (FieldError allError : fieldErrors) {
+            String param = allError.getField();
+            String message = allError.getDefaultMessage();
+            errors.put(param, message);
+        }
+        return errors;
+    }
 }

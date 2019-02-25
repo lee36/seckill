@@ -16,18 +16,20 @@ import java.util.HashMap;
  */
 @Configuration
 public class RabbitConfig {
-  @Value("${rabbitmq.queque}")
-  private String queque;
-  @Value("${rabbitmq.exchange}")
-  private String exchange;
-  @Value("${rabbitmq.routerkey}")
-  private String routerKey;
-  @Bean
-  public Queue queue(){
-      return new Queue(queque);
-  }
-  @Bean
-  public Binding binding(){
-     return  new Binding(queque,Binding.DestinationType.QUEUE,exchange,routerKey,new HashMap<>());
-  }
+    @Value("${rabbitmq.queque}")
+    private String queque;
+    @Value("${rabbitmq.exchange}")
+    private String exchange;
+    @Value("${rabbitmq.routerkey}")
+    private String routerKey;
+
+    @Bean
+    public Queue queue() {
+        return new Queue(queque);
+    }
+
+    @Bean
+    public Binding binding() {
+        return new Binding(queque, Binding.DestinationType.QUEUE, exchange, routerKey, new HashMap<>());
+    }
 }

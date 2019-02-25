@@ -11,8 +11,10 @@ import org.springframework.stereotype.Service;
 public interface OrderMapper {
     @Insert("insert into order_tb(id,user_id,total_price) values(#{id},#{user.id},#{totalPrice})")
     public int saveOrder(Order order);
+
     @Update("update order_tb set status=#{status} where id=#{orderId}")
-    public int updateState(String orderId,Integer status);
+    public int updateState(String orderId, Integer status);
+
     @Select("select * from order_tb where id=#{id}")
     public Order findById(String id);
 }

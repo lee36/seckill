@@ -31,11 +31,13 @@ public class SysTimerTask {
     private GoodsMapper goodsMapper;
     @Autowired
     private GoodSolrDocumentRepository goodSolrDocumentRepository;
+
     /**
      * 指定在凌晨时将redis中的用户访问数据加载到数据库中
+     *
      * @throws Exception
      */
-    @Scheduled(cron="0 0 0 * * *")
+    @Scheduled(cron = "0 0 0 * * *")
     public void putUserVisitedIntoMysql() throws Exception {
         System.out.println("==========定时器启动=============");
         Long num = jedisTemplate.get("user:visited", Long.class);
@@ -47,24 +49,24 @@ public class SysTimerTask {
     }
 
     /**
-     *每隔10秒同步数据库与搜索引擎
+     * 每隔10秒同步数据库与搜索引擎
      */
     @Scheduled(fixedRate = 10000L)
-    public void addGoods2SolrDocument(){
+    public void addGoods2SolrDocument() {
         //从数据库中加载所有Goods
         List<Goods> allGoods = goodsMapper.findAllGoods();
-        if(allGoods.size()<=0){
-            return ;
+        if (allGoods.size() <= 0) {
+            return;
         }
         List<GoodSolrDocument> allSolrGoods = new ArrayList<>();
-        for (Goods goods:allGoods){
+        for (Goods goods : allGoods) {
             GoodSolrDocument goodSolrDocument = new GoodSolrDocument();
             goodSolrDocument.setGoodImg(goods.getImg());
             goodSolrDocument.setGoodInfo(goods.getInfo());
             goodSolrDocument.setGoodName(goods.getName());
             goodSolrDocument.setGoodPrice(goods.getPrice());
             goodSolrDocument.setGoodStock(goods.getStock());
-            goodSolrDocument.setId(goods.getId()+"");
+            goodSolrDocument.setId(goods.getId() + "");
             goodSolrDocument.setStoreId(goods.getStore().getId());
             goodSolrDocument.setWeight(goods.getWeight());
             allSolrGoods.add(goodSolrDocument);

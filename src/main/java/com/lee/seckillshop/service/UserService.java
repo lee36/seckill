@@ -12,8 +12,11 @@ import java.util.Map;
  * @date 2018-09-20
  */
 public interface UserService {
-    public Map<String,Object> inferUserExits(String openId, String access_token) throws Exception;
-    public Map<String,Object> userLogin(UserLoginForm user);
+    public Map<String, Object> inferUserExits(String openId, String access_token) throws Exception;
+
+    public Map<String, Object> userLogin(UserLoginForm user);
+
     public User userRegist(UserRegistForm user) throws Exception;
+
     public User findById(Integer id);
 }
