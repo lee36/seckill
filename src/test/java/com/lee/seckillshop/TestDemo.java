@@ -1,6 +1,5 @@
 package com.lee.seckillshop;
 
-import com.lee.seckillshop.componet.JedisTemplate;
 import com.lee.seckillshop.mapper.SeckillGoodsMapper;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -12,7 +11,6 @@ import redis.clients.jedis.JedisCluster;
 import redis.clients.jedis.JedisPool;
 
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.LinkedBlockingDeque;
 import java.util.concurrent.TimeUnit;

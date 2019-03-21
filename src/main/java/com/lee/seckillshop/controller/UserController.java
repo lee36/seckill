@@ -1,25 +1,24 @@
 package com.lee.seckillshop.controller;
 
+import com.lee.seckillshop.commons.util.JwtUtil;
+import com.lee.seckillshop.commons.util.ValidateErrorUtil;
 import com.lee.seckillshop.form.UserLoginForm;
 import com.lee.seckillshop.form.UserRegistForm;
-import com.lee.seckillshop.model.User;
+import com.lee.seckillshop.commons.model.User;
 import com.lee.seckillshop.service.UserService;
-import com.lee.seckillshop.util.JwtUtil;
-import com.lee.seckillshop.util.ValidateErrorUtil;
-import com.lee.seckillshop.vo.ResultResponse;
+import com.lee.seckillshop.commons.vo.ResultResponse;
 import io.jsonwebtoken.Claims;
-import io.jsonwebtoken.Jwt;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.context.properties.bind.BindResult;
 import org.springframework.util.StringUtils;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
+import java.io.IOException;
 import java.util.Map;
 
 /**
@@ -34,7 +33,7 @@ public class UserController {
     public UserService userService;
 
     @PostMapping("/login")
-    public Object login(@Valid UserLoginForm user, BindingResult result) {
+    public Object login(@Valid UserLoginForm user, BindingResult result) throws IOException {
         if (result.hasErrors()) {
             Map<String, String> map = ValidateErrorUtil.buildeError(result);
             return new ResultResponse(501, "输入格式有误", map);
@@ -70,5 +69,12 @@ public class UserController {
         }
         return new ResultResponse(0, "解析成功", JwtUtil.parseToken(token));
     }
-
+    @GetMapping("/becomeSeller")
+    public Object becomeSeller(Integer id){
+        Boolean b = userService.becomeSeller(id);
+        if(b){
+            return new ResultResponse(200,"success",b);
+        }
+        return new ResultResponse(500,"error",b);
+    }
 }

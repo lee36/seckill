@@ -1,9 +1,8 @@
 package com.lee.seckillshop.mapper;
 
-import com.lee.seckillshop.model.OrderDetail;
+import com.lee.seckillshop.commons.model.OrderDetail;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
-import org.mybatis.spring.annotation.MapperScan;
 
 @Mapper
 public interface OrderDetailMapper {

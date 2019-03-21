@@ -1,19 +1,21 @@
 package com.lee.seckillshop.config;
 
-import com.lee.seckillshop.intercepter.RegistIntercepter;
-import com.lee.seckillshop.intercepter.TokenInterceper;
+import com.lee.seckillshop.commons.intercepter.RegistIntercepter;
+import com.lee.seckillshop.commons.intercepter.TokenInterceper;
 
+import com.lee.seckillshop.commons.vo.MydateFormat;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.web.servlet.MultipartConfigFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.web.PageableHandlerMethodArgumentResolver;
 import org.springframework.format.FormatterRegistry;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.method.support.HandlerMethodArgumentResolver;
-import org.springframework.web.servlet.config.annotation.CorsRegistry;
-import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.web.servlet.config.annotation.*;
 
+import javax.servlet.MultipartConfigElement;
+import javax.servlet.annotation.MultipartConfig;
 import java.util.List;
 
 /**
@@ -36,8 +38,8 @@ public class WebConfig implements WebMvcConfigurer {
      */
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(registIntercepter).addPathPatterns("/user/regist");
-        registry.addInterceptor(tokenInterceper).addPathPatterns("/seckill/**");
+        //registry.addInterceptor(registIntercepter).addPathPatterns("/user/regist");
+        //registry.addInterceptor(tokenInterceper).addPathPatterns("/seckill/**");
     }
 
     /**
@@ -72,5 +74,12 @@ public class WebConfig implements WebMvcConfigurer {
         return new RestTemplate();
     }
 
+    @Bean
+    public MultipartConfigElement configElement(){
+        MultipartConfigFactory configFactory = new MultipartConfigFactory();
+        configFactory.setMaxFileSize("500mb");
+        configFactory.setMaxRequestSize("500mb");
+        return configFactory.createMultipartConfig();
+    }
 
 }

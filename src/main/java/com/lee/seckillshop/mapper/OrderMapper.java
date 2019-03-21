@@ -1,11 +1,10 @@
 package com.lee.seckillshop.mapper;
 
-import com.lee.seckillshop.model.Order;
+import com.lee.seckillshop.commons.model.Order;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
-import org.springframework.stereotype.Service;
 
 @Mapper
 public interface OrderMapper {

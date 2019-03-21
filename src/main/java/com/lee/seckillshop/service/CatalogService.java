@@ -1,6 +1,7 @@
 package com.lee.seckillshop.service;
 
-import com.lee.seckillshop.model.GoodsCatalog;
+import com.lee.seckillshop.commons.model.GoodsCatalog;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -10,4 +11,12 @@ import java.util.List;
  */
 public interface CatalogService {
     public List<GoodsCatalog> getAllCatalog();
+
+    public Boolean addCatalog(MultipartFile file, GoodsCatalog catalog);
+
+    Boolean deleteSelected(List<Integer> ids);
+
+    GoodsCatalog getCatalog(Integer id);
+
+    Boolean updateCatalog(MultipartFile file, GoodsCatalog catalog);
 }

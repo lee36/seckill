@@ -1,10 +1,12 @@
 package com.lee.seckillshop.service;
 
 
-import com.lee.seckillshop.model.GoodsCatalog;
-import com.lee.seckillshop.vo.GoodSolrDocument;
+import com.lee.seckillshop.commons.model.Goods;
+import com.lee.seckillshop.commons.model.GoodsCatalog;
+import com.lee.seckillshop.commons.vo.GoodSolrDocument;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 import java.util.Map;
@@ -19,4 +21,14 @@ public interface GoodsService {
     public Page<GoodSolrDocument> findAllSolrGoods(Pageable pageable);
 
     public Page<GoodSolrDocument> findByInfo(String info, String info1, Pageable pageable);
+
+    public Goods findById(Integer id);
+
+    public List<Goods> getMySelfGoodsList(Integer id);
+
+    Boolean addGood(MultipartFile file, Goods goods);
+
+    Boolean updateGoods(MultipartFile file, Goods goods);
+
+    Boolean deleteSelected(List<Integer> ids);
 }

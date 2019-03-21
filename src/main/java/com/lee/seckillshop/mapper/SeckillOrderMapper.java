@@ -1,9 +1,7 @@
 package com.lee.seckillshop.mapper;
 
-import com.lee.seckillshop.model.SeckillGood;
-import com.lee.seckillshop.model.SeckillOrder;
+import com.lee.seckillshop.commons.model.SeckillOrder;
 import org.apache.ibatis.annotations.*;
-import org.apache.zookeeper.Op;
 
 /**
  * @author admin

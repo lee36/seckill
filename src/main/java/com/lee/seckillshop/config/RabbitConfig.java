@@ -16,6 +16,7 @@ import java.util.HashMap;
  */
 @Configuration
 public class RabbitConfig {
+
     @Value("${rabbitmq.queque}")
     private String queque;
     @Value("${rabbitmq.exchange}")

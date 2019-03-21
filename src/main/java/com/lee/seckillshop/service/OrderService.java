@@ -1,7 +1,6 @@
 package com.lee.seckillshop.service;
 
-import com.lee.seckillshop.exception.PayUnkownException;
-import org.omg.CORBA.INTERNAL;
+import com.lee.seckillshop.commons.exception.PayUnkownException;
 
 import java.util.List;
 

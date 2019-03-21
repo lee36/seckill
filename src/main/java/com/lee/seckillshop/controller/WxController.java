@@ -6,18 +6,14 @@ import com.google.zxing.MultiFormatWriter;
 import com.google.zxing.client.j2se.MatrixToImageWriter;
 import com.google.zxing.common.BitMatrix;
 import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel;
-import com.lee.seckillshop.exception.PayUnkownException;
-import com.lee.seckillshop.mapper.OrderMapper;
-import com.lee.seckillshop.model.User;
-import com.lee.seckillshop.properties.WxLoginProperties;
-import com.lee.seckillshop.properties.WxPayProperties;
+import com.lee.seckillshop.commons.exception.PayUnkownException;
+import com.lee.seckillshop.commons.properties.WxLoginProperties;
+import com.lee.seckillshop.commons.properties.WxPayProperties;
+import com.lee.seckillshop.commons.util.*;
 import com.lee.seckillshop.service.OrderService;
 import com.lee.seckillshop.service.UserService;
-import com.lee.seckillshop.util.*;
-import com.lee.seckillshop.vo.ResultResponse;
-import org.apache.ibatis.javassist.expr.NewArray;
+import com.lee.seckillshop.commons.vo.ResultResponse;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.annotation.Id;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
@@ -71,6 +67,9 @@ public class WxController {
         String openId = (String) map.get("openid");
         //通过openId判断是否用户存在
         Map userMap = userService.inferUserExits(openId, access_token);
+        if(userMap.get("error")!=null){
+            return "redirect:http://www.baidu.com";
+        }
         return "redirect:http://10.1.0.88:8080/" + state + "?token=" + userMap.get("token");
     }
 

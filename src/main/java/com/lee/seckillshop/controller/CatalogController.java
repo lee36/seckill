@@ -1,8 +1,8 @@
 package com.lee.seckillshop.controller;
 
-import com.lee.seckillshop.model.GoodsCatalog;
+import com.lee.seckillshop.commons.model.GoodsCatalog;
 import com.lee.seckillshop.service.CatalogService;
-import com.lee.seckillshop.vo.ResultResponse;
+import com.lee.seckillshop.commons.vo.ResultResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

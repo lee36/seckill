@@ -14,6 +14,7 @@ create table if not exists `user_tb`(
   `salt` varchar(255) comment '密码加密所用的盐',
   `phone` varchar(50) comment '用户的手机号',
   `email` varchar(255) comment '用户的邮箱',
+  `status` varchar(255) comment '状态',
   `create_time` timestamp on update current_timestamp default current_timestamp   comment '用户创建时间',
   `update_time` timestamp on update current_timestamp default current_timestamp  comment '用户修改时间',
    INDEX idx(`id`),

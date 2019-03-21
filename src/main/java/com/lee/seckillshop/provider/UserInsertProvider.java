@@ -1,6 +1,6 @@
 package com.lee.seckillshop.provider;
 
-import com.lee.seckillshop.model.User;
+import com.lee.seckillshop.commons.model.User;
 import org.apache.ibatis.jdbc.SQL;
 
 /**

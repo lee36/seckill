@@ -1,12 +1,9 @@
 package com.lee.seckillshop.controller;
 
-import com.lee.seckillshop.exception.PayUnkownException;
-import com.lee.seckillshop.exception.SeckillGoodIdNotExistException;
-import com.lee.seckillshop.exception.SeckillGoodStatusNotExistException;
-import com.lee.seckillshop.exception.SeckillUserIdNotExistException;
-import com.lee.seckillshop.vo.ResultResponse;
+import com.lee.seckillshop.commons.exception.*;
+import com.lee.seckillshop.commons.vo.ResultResponse;
+import io.undertow.server.handlers.form.MultiPartParserDefinition;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
@@ -28,7 +25,16 @@ public class GlobleExceptionController {
             return new ResultResponse(503, e.getMessage(), null);
         } else if (e instanceof PayUnkownException) {
             return new ResultResponse(600, e.getMessage(), null);
-        } else {
+        } else if(e instanceof MultiPartParserDefinition.FileTooLargeException){
+            return new ResultResponse(601, e.getMessage(), null);
+        }else if(e instanceof AddSeckillGoodException){
+            return new ResultResponse(602, e.getMessage(), null);
+        }else if(e instanceof SeckillAllReadyException){
+            return new ResultResponse(603, e.getMessage(), null);
+        }
+        else if(e instanceof SeckillGoodNotFull){
+            return new ResultResponse(604, e.getMessage(), null);
+        }else {
             return new ResultResponse(504, "网络不稳定哟", null);
         }
     }

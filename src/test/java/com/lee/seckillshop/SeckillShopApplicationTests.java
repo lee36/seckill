@@ -1,10 +1,9 @@
 package com.lee.seckillshop;
 
-import com.lee.seckillshop.componet.JedisTemplate;
+import com.lee.seckillshop.commons.componet.JedisComponet;
 import com.lee.seckillshop.mapper.GoodSolrDocumentRepository;
 import com.lee.seckillshop.mapper.UserMapper;
-import com.lee.seckillshop.model.User;
-import com.lee.seckillshop.vo.GoodSolrDocument;
+import com.lee.seckillshop.commons.model.User;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
@@ -13,14 +12,11 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.solr.core.SolrTemplate;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import java.util.Map;
-import java.util.concurrent.LinkedBlockingDeque;
-
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class SeckillShopApplicationTests {
     @Autowired
-    private JedisTemplate jedisTemplate;
+    private JedisComponet jedisTemplate;
     @Autowired
     private RabbitTemplate rabbitTemplate;
     @Autowired

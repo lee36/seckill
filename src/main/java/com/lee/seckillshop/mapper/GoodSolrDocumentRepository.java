@@ -1,13 +1,11 @@
 package com.lee.seckillshop.mapper;
 
-import com.lee.seckillshop.vo.GoodSolrDocument;
+import com.lee.seckillshop.commons.vo.GoodSolrDocument;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.solr.repository.Highlight;
 import org.springframework.data.solr.repository.SolrCrudRepository;
 import org.springframework.stereotype.Repository;
-
-import java.util.List;
 
 /**
  * @author admin

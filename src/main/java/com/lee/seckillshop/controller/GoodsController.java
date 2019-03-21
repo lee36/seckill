@@ -1,18 +1,16 @@
 package com.lee.seckillshop.controller;
 
-import com.lee.seckillshop.mapper.CatalogMapper;
+import com.lee.seckillshop.commons.model.Goods;
+import com.lee.seckillshop.commons.util.ParseSolrDocumentUtil;
 import com.lee.seckillshop.service.GoodsService;
-import com.lee.seckillshop.util.ParseSolrDocumentUtil;
-import com.lee.seckillshop.vo.GoodSolrDocument;
-import com.lee.seckillshop.vo.ResultResponse;
+import com.lee.seckillshop.commons.vo.GoodSolrDocument;
+import com.lee.seckillshop.commons.vo.ResultResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.solr.core.query.result.HighlightEntry;
-import org.springframework.data.solr.core.query.result.SolrResultPage;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.util.StringUtils;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -59,6 +57,15 @@ public class GoodsController {
         maps.put("page", page.getNumber());
         maps.put("size", page.getSize());
         return new ResultResponse(0, "请求成功", maps);
+    }
+
+    @GetMapping("/details")
+    public Object getDetail(Integer id){
+        Goods good = goodsService.findById(id);
+        if(good!=null){
+            return new ResultResponse(200,"success",good);
+        }
+        return new ResultResponse(500,"error",null);
     }
 
 }

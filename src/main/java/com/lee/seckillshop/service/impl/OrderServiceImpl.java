@@ -1,14 +1,13 @@
 package com.lee.seckillshop.service.impl;
 
-import com.lee.seckillshop.exception.PayUnkownException;
+import com.lee.seckillshop.commons.exception.PayUnkownException;
 import com.lee.seckillshop.mapper.*;
-import com.lee.seckillshop.model.*;
+import com.lee.seckillshop.commons.model.*;
 import com.lee.seckillshop.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
-import javax.validation.constraints.NotNull;
 import java.util.List;
 
 @Service

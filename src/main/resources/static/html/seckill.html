@@ -1,0 +1,259 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Carbon - Admin Template</title>
+    <link rel="stylesheet" href="../vendor/simple-line-icons/css/simple-line-icons.css">
+    <link rel="stylesheet" href="../vendor/font-awesome/css/fontawesome-all.min.css">
+    <link rel="stylesheet" href="../css/styles.css">
+    <style>
+        table th,table td{
+            line-height: 30px;
+            text-align: center;
+            width: 10%;
+        }
+    </style>
+</head>
+<body class="sidebar-fixed header-fixed">
+<div id="app">
+    <div id="myModal1" style="z-index:1000;
+    position: absolute;top:20px;left: 180px;width: 1200px;border-radius: 20px" v-show="showFlag">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content" style="padding: 20px">
+                <form>
+                    <div class="form-group" >
+                        <label>商品名称</label>
+                        <input type="text" id="goodName1"  class="form-control" v-model="good.name"/>
+                    </div>
+                    <div class="form-group" >
+                        <label>原图</label>
+                        <img :src="good.img">
+                    </div>
+                    <div class="form-group">
+                        <label>修改图片</label>
+                        <input type="file" id="upload1"/>
+                    </div>
+                    <div class="form-group">
+                        <label>商品价格</label>
+                        <input type="number" id="goodPrice1"  class="form-control" v-model="good.price"/>
+                    </div>
+                    <div class="form-group">
+                        <label>商品数量</label>
+                        <input type="number" id="goodNum1"  class="form-control" v-model="good.stock"/>
+                    </div>
+                    <div class="form-group">
+                        <label>商品简介</label>
+                        <textarea cols="20" rows="5" id="goodInfo1"  class="form-control" v-model="good.info"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>商品详情</label>
+                        <div class="form-control" id="editor2">
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>商品类别</label>
+                        <select id="goodCatalog1" v-model="good.catalogId"  class="form-control">
+                            <option v-for="catalog in good.catalog" :value="catalog.id">{{catalog.name}}</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>商品状态</label>
+                        <select id="goodStatus1" v-model="good.status"  class="form-control">
+                            <option value="0">上架</option>
+                            <option value="1">下架</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <button type="button" @click="submitFrame1">修改</button>
+                        <button type="button" @click="closeFrame1">关闭</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div id="myModal" style="z-index:1000;
+    position: absolute;top:20px;left: 180px;width: 1200px;border-radius: 20px" v-show="isShowUpdate">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content" style="padding: 20px">
+                <form>
+                    <div class="form-group" >
+                        <label>选择你要进行秒杀的商品</label>
+                        <select v-model="seckill.goodId" class="form-control">
+                            <option v-for="good in goods" :value="good.id">{{good.name}}</option>
+                        </select>
+                    </div>
+                    <div class="form-group" >
+                        <label>秒杀商品数量</label>
+                        <input  type="number"  class="form-control" v-model="seckill.stock"/>
+                    </div>
+                    <div class="form-group">
+                        <label>秒杀商品的价格</label>
+                        <input type="number" class="form-control" v-model="seckill.price"/>
+                    </div>
+                    <div class="form-group">
+                        <label>秒杀商品开始时间</label>
+                        <input type="text" class="form-control" v-model="seckill.createTime"/>
+                    </div>
+                    <div class="form-group">
+                        <label>秒杀商品结束时间</label>
+                        <input type="text" class="form-control" v-model="seckill.endTime"/>
+                    </div>
+                    <div class="form-group">
+                        <button type="button" @click="submitFrame">添加</button>
+                        <button type="button" @click="closeFrame">关闭</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="page-wrapper">
+        <nav class="navbar page-header">
+
+            <ul class="navbar-nav ml-auto">
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <img :src="user.headImg" class="avatar avatar-sm" alt="logo">
+                        <span class="small ml-1 d-md-down-none">
+                            {{user.nickname}}
+                        </span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="main-container">
+            <div class="sidebar">
+                <nav class="sidebar-nav">
+                    <ul class="nav">
+                        <li class="nav-item">
+                            <a href="http://localhost:8080/html/index.html" class="nav-link">
+                                <i class="icon icon-speedometer"></i> 主页
+                            </a>
+                        </li>
+                        <li class="nav-item" v-show="isUser">
+                            <a href="http://localhost:8080/html/user.html" class="nav-link">
+                                <i class="icon icon-energy"></i> 用户管理
+                            </a>
+                        </li>
+                        <li class="nav-item" v-show="isGood">
+                            <a href="http://localhost:8080/html/goods.html" class="nav-link">
+                                <i class="icon icon-graph"></i> 商品管理
+                            </a>
+                        </li>
+                        <li class="nav-item" v-show="isSeckill">
+                            <a href="http://localhost:8080/html/seckill.html" class="nav-link">
+                                <i class="icon icon-puzzle"></i> 秒杀管理
+                            </a>
+                        </li>
+                        <li class="nav-item" v-show="isAdvice">
+                            <a href="http://localhost:8080/html/see.html" class="nav-link">
+                                <i class="icon icon-puzzle"></i> 用户意见浏览
+                            </a>
+                        </li>
+                        <li class="nav-item" v-show="isBanner">
+                            <a href="http://localhost:8080/html/banner.html" class="nav-link active">
+                                <i class="icon icon-puzzle"></i> 轮播图管理
+                            </a>
+                        </li>
+                        <li class="nav-item" v-show="isShop">
+                            <a href="http://localhost:8080/html/shop.html" class="nav-link">
+                                <i class="icon icon-puzzle"></i> 店铺管理
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="http://localhost:8080/html/erea.html" class="nav-link">
+                                <i class="icon icon-puzzle"></i> 地区分布
+                            </a>
+                        </li>
+                        <li class="nav-item" @click="logout">
+                            <a href="javascript:void(0)" class="nav-link" >
+                                <i class="icon icon-puzzle"></i> 退出系统
+                            </a>
+                        </li>
+
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="content">
+                <div class="container-fluid" style="margin-bottom: 20px">
+                    <div class="row">
+                        <div class="col-sm-6"></div>
+                        <div class="col-sm-6" style="text-align: right">
+                            <button type="button" class="btn btn-secondary" @click="addSeckill">添加</button>
+                            <button type="button" class="btn btn-primary" @click="delSeckill">删除</button>
+                            <button type="button" class="btn btn-danger" @click="updateGoods">更新</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="container-fluid">
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead>
+                            <tr style="text-align: center">
+                                <th>勾选</th>
+                                <th>编号</th>
+                                <th>名称</th>
+                                <th>图片</th>
+                                <th>价格</th>
+                                <th>库存</th>
+                                <th>创建时间</th>
+                                <th>结束时间</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr v-for="seckill in seckillList" style="text-align: center">
+                                <td style="padding-top: 38px"><input type="checkbox" v-model="checked" :value="seckill.id"/></td>
+                                <td style="padding-top: 30px">{{seckill.id}}</td>
+                                <td >{{seckill.name}}</td>
+                                <td style="padding-top: 15px">
+                                    <img :src="seckill.img" style="width: 50px;height: 50px;"/>
+                                </td>
+                                <td style="padding-top: 30px">{{seckill.price/1000.0}}￥</td>
+                                <td style="padding-top: 30px">{{seckill.stock}}</td>
+                                <td >{{seckill.createTime}}</td>
+                                <td >{{seckill.endTime}}</td>
+                                <td style="display: none">{{seckill.refId}}</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <nav aria-label="Page navigation example">
+                            <ul class="pagination">
+                                <li class="page-item" @click="before" :class="page==1?'disable':''">
+                                    <a class="page-link" href="#" aria-label="Previous">
+                                        <span aria-hidden="true">&laquo;</span>
+                                        <span class="sr-only">Previous</span>
+                                    </a>
+                                </li>
+                                <li class="page-item" v-for="item in totalPage" @click="jump(item)" :class="item==page?'active':''">
+                                    <a class="page-link" href="#">{{item}}</a>
+                                </li>
+                                <li class="page-item" @click="next" :class="page==totalPage?'disable':''">
+                                    <a class="page-link" href="#" aria-label="Next">
+                                        <span aria-hidden="true">&raquo;</span>
+                                        <span class="sr-only">Next</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="../vendor/jquery/jquery.min.js" type="text/javascript"></script>
+<script src="../vendor/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+<!--<script src="../js/carbon.js" type="text/javascript"></script>-->
+<script type="text/javascript" src="../vendor/vue/vue.js"></script>
+<script type="text/javascript" src="../vendor/vue/axios.js"></script>
+<script type="text/javascript" src="../js/seckill.js"></script>
+<script type="text/javascript" src="http://unpkg.com/wangeditor@3.1.1/release/wangEditor.min.js"></script>
+</body>
+</html>

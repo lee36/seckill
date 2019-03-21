@@ -1,13 +1,11 @@
 package com.lee.seckillshop.form;
 
-import com.lee.seckillshop.anotation.EmailUnique;
-import com.lee.seckillshop.anotation.PasswordComfirm;
-import com.lee.seckillshop.anotation.PhoneUnique;
-import com.lee.seckillshop.anotation.UsernameUnique;
+import com.lee.seckillshop.commons.anotation.PasswordComfirm;
+import com.lee.seckillshop.commons.anotation.PhoneUnique;
+import com.lee.seckillshop.commons.anotation.UsernameUnique;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.NonNull;
 import org.hibernate.validator.constraints.Range;
 
 import javax.validation.constraints.*;
@@ -40,4 +38,6 @@ public class UserRegistForm {
     @PhoneUnique(message = "手机号已存在")
     @NotNull(message = "手机号不能为空")
     private String phone;
+    @NotNull(message = "地区不能为空")
+    private String address;
 }

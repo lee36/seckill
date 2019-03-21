@@ -2,26 +2,31 @@ package com.lee.seckillshop.service.impl;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.lee.seckillshop.componet.JedisTemplate;
-import com.lee.seckillshop.mapper.CatalogMapper;
-import com.lee.seckillshop.mapper.GoodSolrDocumentRepository;
-import com.lee.seckillshop.mapper.GoodsMapper;
-import com.lee.seckillshop.mapper.SeckillGoodsMapper;
-import com.lee.seckillshop.model.Goods;
-import com.lee.seckillshop.model.GoodsCatalog;
-import com.lee.seckillshop.model.SeckillGood;
+import com.lee.seckillshop.commons.componet.JedisComponet;
+import com.lee.seckillshop.commons.model.GoodsCatalog;
+import com.lee.seckillshop.commons.model.Store;
+import com.lee.seckillshop.commons.model.User;
+import com.lee.seckillshop.mapper.*;
+import com.lee.seckillshop.commons.model.Goods;
 import com.lee.seckillshop.service.GoodsService;
-import com.lee.seckillshop.vo.GoodSolrDocument;
-import com.lee.seckillshop.vo.SeckillGoodVo;
-import org.apache.ibatis.annotations.Mapper;
+import com.lee.seckillshop.commons.vo.GoodSolrDocument;
+import com.lee.seckillshop.commons.vo.SeckillGoodVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.web.context.request.RequestAttributes;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
+import org.springframework.web.context.request.ServletWebRequest;
+import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpServletRequest;
+import java.io.File;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
 /**
  * @author admin
@@ -29,16 +34,22 @@ import java.util.Map;
  */
 @Service
 public class GoodsServiceImpl implements GoodsService {
+
+    private static String uploadPath="F:\\IDEA_project\\seckill-shop\\target\\classes\\static\\goods";
+    private static String showPath="http://localhost:8080/goods/";
+
     @Autowired
     private CatalogMapper catalogMapper;
     @Autowired
     private SeckillGoodsMapper seckillGoodsMapper;
     @Autowired
-    private JedisTemplate jedisTemplate;
+    private JedisComponet jedisTemplate;
     @Autowired
     private GoodSolrDocumentRepository goodSolrDocumentRepository;
     @Autowired
     private GoodsMapper goodsMapper;
+    @Autowired
+    private StoreMapper storeMapper;
 
     @Override
     public Map<String, Object> showIndex(Pageable pageable) throws Exception {
@@ -67,6 +78,93 @@ public class GoodsServiceImpl implements GoodsService {
     @Override
     public Page<GoodSolrDocument> findByInfo(String info, String info1, Pageable pageable) {
         return goodSolrDocumentRepository.findByGoodInfoOrGoodNameLike(info, info1, pageable);
+    }
+
+    @Override
+    public Goods findById(Integer id) {
+        Goods goods = goodsMapper.findById(id);
+        return goods;
+    }
+
+    @Override
+    public List<Goods> getMySelfGoodsList(Integer id) {
+        return goodsMapper.getMySelfGoodsList(id);
+    }
+
+    @Override
+    public Boolean addGood(MultipartFile file, Goods goods) {
+        ServletRequestAttributes requestAttributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
+        HttpServletRequest request = requestAttributes.getRequest();
+        User user = (User)request.getSession().getAttribute("user");
+        if(user==null){
+            return false;
+        }
+        Integer id = user.getId();
+        Store store = storeMapper.findById(id);
+        //生成新的文件名称
+        String filename = file.getOriginalFilename();
+        String suffix = filename.substring(filename.lastIndexOf("."), filename.length());
+        String newFileName=UUID.randomUUID().toString();
+        String newFullFileName=newFileName+suffix;
+        String dbFileName=showPath+newFullFileName;
+        //先存入数据库
+        goods.setStore(store);
+        goods.setImg(dbFileName);
+        int i = goodsMapper.addGoods(goods);
+        if(i>0){
+            //上传文件
+            try {
+                file.transferTo(new File(uploadPath, newFullFileName));
+                return true;
+            }catch (Exception e){
+                return false;
+            }
+        }else{
+            return false;
+        }
+    }
+
+    @Override
+    public Boolean updateGoods(MultipartFile file, Goods goods) {
+        String newFullFileName=null;
+        if(file!=null){
+            //先存入数据库
+            //生成新的文件名称
+            String filename = file.getOriginalFilename();
+            String suffix = filename.substring(filename.lastIndexOf("."), filename.length());
+            String newFileName=UUID.randomUUID().toString();
+            newFullFileName=newFileName+suffix;
+            String dbFileName=showPath+newFullFileName;
+            goods.setImg(dbFileName);
+        }
+        int i = goodsMapper.updateGoods(goods);
+        if(i>0){
+            //上传文件
+            if(file!=null){
+                //先存入数据库
+                try {
+                    file.transferTo(new File(uploadPath, newFullFileName));
+                    return true;
+                }catch (Exception e){
+                    return false;
+                }
+            }
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    @Override
+    public Boolean deleteSelected(List<Integer> ids) {
+        try {
+            ids.stream().forEach((id) -> {
+                goodsMapper.deleteById(id);
+            });
+            return true;
+        }catch (Exception e){
+            return false;
+        }
     }
 
     /**
