@@ -29,5 +29,7 @@ public class SeckillOrder {
     private Integer num;
     private Integer price;
     private User user;
+    private SeckillGood good;
     private Timestamp createTime;
+    private Integer status;
 }

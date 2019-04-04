@@ -45,6 +45,11 @@
                                 <i class="icon icon-graph"></i> 商品管理
                             </a>
                         </li>
+                        <li class="nav-item" v-show="isCatalog">
+                            <a href="http://localhost:8080/html/catalog.html" class="nav-link">
+                                <i class="icon icon-speedometer"></i> 分类管理
+                            </a>
+                        </li>
                         <li class="nav-item" v-show="isSeckill">
                             <a href="http://localhost:8080/html/seckill.html" class="nav-link">
                                 <i class="icon icon-puzzle"></i> 秒杀管理
@@ -58,11 +63,6 @@
                         <li class="nav-item" v-show="isBanner">
                             <a href="http://localhost:8080/html/banner.html" class="nav-link">
                                 <i class="icon icon-puzzle"></i> 轮播图管理
-                            </a>
-                        </li>
-                        <li class="nav-item" v-show="isShop">
-                            <a href="http://localhost:8080/html/shop.html" class="nav-link">
-                                <i class="icon icon-puzzle"></i> 店铺管理
                             </a>
                         </li>
                         <li class="nav-item">

@@ -12,7 +12,6 @@ import org.springframework.stereotype.Repository;
  * @date 2018-09-29
  * 商品的solr操作接口
  */
-@Repository
 public interface GoodSolrDocumentRepository extends SolrCrudRepository<GoodSolrDocument, String> {
     @Highlight(prefix = "<font color='red'>", postfix = "</font>")
     public Page<GoodSolrDocument> findByGoodInfoOrGoodNameLike(String info, String info1, Pageable pageable);

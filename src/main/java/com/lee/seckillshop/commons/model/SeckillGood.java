@@ -2,12 +2,16 @@ package com.lee.seckillshop.commons.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.lee.seckillshop.commons.vo.MyTimeStampDeserializer;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.sql.Timestamp;
+import java.util.Date;
 
 /**
  * @author admin

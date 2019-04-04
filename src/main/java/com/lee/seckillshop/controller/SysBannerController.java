@@ -25,7 +25,6 @@ import java.util.stream.Collectors;
 @RequestMapping("/sys")
 public class SysBannerController {
 
-
     @Autowired
     private BannerService bannerService;
 

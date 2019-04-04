@@ -78,8 +78,53 @@ public class OrderServiceImpl implements OrderService {
 
         } else {
             //更新普通订单表
-            int count = orderMapper.updateState(out_trade_no, 1);
+            int count = orderMapper.updateState(1,out_trade_no);
         }
 
+    }
+
+    @Override
+    public Object getMyOrder(Integer id,Integer flag) {
+        if(flag==1){
+            //普通订单
+            return orderMapper.getMyOrder(id);
+        }else{
+            return seckillOrderMapper.getMySeckillOrder(id);
+        }
+
+    }
+
+    @Override
+    public Boolean inferOrder(String orderId,int flag) {
+        if(flag==1){
+           //普通订单
+            Order order = orderMapper.findById(orderId);
+            //支付
+            if(order.getStatus()==1){
+                return true;
+            }
+            //未支付
+            return false;
+        }else{
+            //秒杀订单
+            SeckillOrder order = seckillOrderMapper.findById(orderId);
+            //支付
+            if(order.getStatus()==1){
+                return true;
+            }
+            //未支付
+            return false;
+        }
+
+    }
+
+    @Override
+    public List<OrderDetail> getDetailsFromNormal(String id) {
+        return orderDetailMapper.findDetailsByOrderId(id);
+    }
+
+    @Override
+    public SeckillOrder getDetailsFromSeckill(String id) {
+        return seckillOrderMapper.findById(id);
     }
 }

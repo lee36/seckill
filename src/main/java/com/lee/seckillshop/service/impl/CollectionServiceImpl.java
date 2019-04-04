@@ -4,7 +4,11 @@ import com.lee.seckillshop.commons.model.Collection;
 import com.lee.seckillshop.mapper.CollectionMapper;
 import com.lee.seckillshop.service.CollectionService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class CollectionServiceImpl implements CollectionService {
@@ -26,5 +30,10 @@ public class CollectionServiceImpl implements CollectionService {
             return true;
         }
         return false;
+    }
+
+    @Override
+    public List<Collection> getMyCollectors(Integer id) {
+        return collectionMapper.getMyCollectors(id);
     }
 }

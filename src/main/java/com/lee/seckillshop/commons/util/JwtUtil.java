@@ -14,7 +14,7 @@ import java.util.Date;
  */
 public class JwtUtil {
     private static final String SUBJECT = "lee";
-    private static final Long EXPRETIME = 6 * 24 * 60 * 60 * 100L;
+    private static final Long EXPRETIME = 60*30*1000L;
     private static final String APPSECRET = "lee36";
 
     /**

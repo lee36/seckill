@@ -11,7 +11,7 @@ new Vue({
             isBanner:"",
             isGood:"",
             isSeckill:"",
-            isShop:"",
+            isCatalog:"",
             isErea:""
 
         }
@@ -22,7 +22,6 @@ new Vue({
                .then(function(response){
                    self.user=response.data.data;
                    if(self.user==null){
-                       alert("请先登录")
                        window.location.href="http://localhost:8080/html/login.html"
                        return ;
                    }
@@ -31,7 +30,7 @@ new Vue({
                    self.isShowAdvice(self.user);
                    self.isShowBanner(self.user);
                    self.isShowSeckill(self.user);
-                   self.isShowShop(self.user);
+                   self.isShowCatalog(self.user);
                });
 	   },
 	   getUserNums:function(self){
@@ -118,12 +117,12 @@ new Vue({
                 this.isBanner=true;
             }
         },
-        isShowShop:function(user){
+        isShowCatalog:function(user){
             let identity=user.identity;
             if(identity==2){
-                this.isShop=true;
+                this.isCatalog=true;
             }else{
-                this.isShop=false;
+                this.isCatalog=false;
             }
         },
         logout:function(){

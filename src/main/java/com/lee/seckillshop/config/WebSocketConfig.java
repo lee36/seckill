@@ -20,6 +20,7 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
     //规定代理人
     @Override
     public void configureMessageBroker(MessageBrokerRegistry registry) {
-        registry.enableSimpleBroker("/seckill");
+
+        registry.enableSimpleBroker("/seckill","/msg");
     }
 }

@@ -5,18 +5,22 @@ import com.github.pagehelper.PageInfo;
 import com.lee.seckillshop.commons.componet.JedisComponet;
 import com.lee.seckillshop.commons.exception.SeckillUserIdNotExistException;
 import com.lee.seckillshop.commons.model.SeckillGood;
+import com.lee.seckillshop.commons.model.SeckillOrder;
 import com.lee.seckillshop.commons.model.User;
+import com.lee.seckillshop.commons.vo.SeckillGoodVo;
 import com.lee.seckillshop.service.GoodSeckillService;
 import com.lee.seckillshop.service.UserService;
 import com.lee.seckillshop.commons.vo.ResultResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
+import org.springframework.http.MediaType;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.util.CollectionUtils;
 import org.springframework.web.bind.annotation.*;
 
+import java.awt.*;
 import java.util.Arrays;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -40,13 +44,10 @@ public class SeckillGoodController {
 
     @GetMapping("/good")
     public Object seckillGood(@RequestParam("userId") Integer userId,
-                              @RequestParam("seckGoodId") Integer seckGoodId, @RequestParam("status") Integer staus) throws Exception {
+                              @RequestParam("seckGoodId") Integer seckGoodId) throws Exception {
         User user = userService.findById(userId);
         if (user == null) {
             throw new SeckillUserIdNotExistException("用户不存在");
-        }
-        if (staus.equals(0) || staus.equals(2) || staus < 0 && staus > 2) {
-            throw new SeckillUserIdNotExistException("秒杀商品状态异常");
         }
         boolean flag = goodSeckillService.seckillGood(seckGoodId, userId);
         //查找缓存中是否有redis
@@ -56,7 +57,7 @@ public class SeckillGoodController {
         }
         if (flag) {
             //直接返回结果
-            return new ResultResponse(0, "正在抢购中", null);
+            return new ResultResponse(0, "正在抢购中，请耐心等待", null);
         }
         return new ResultResponse(505, "抢购失败", null);
     }
@@ -69,6 +70,10 @@ public class SeckillGoodController {
      */
     private boolean findSeckillGoodInRedis(Integer seckGoodId) throws Exception {
         List<LinkedHashMap<String, Object>> seckillGoods = jedisTemplate.get("seckill:goods", List.class);
+        if(CollectionUtils.isEmpty(seckillGoods)){
+            List<LinkedHashMap<String, Object>> good = goodSeckillService.getAllSeckillGood();
+            seckillGoods=good;
+        }
         long count = seckillGoods.stream().filter(each -> {
             return each.get("id").equals(seckGoodId);
         }).count();
@@ -81,7 +86,7 @@ public class SeckillGoodController {
         simpMessagingTemplate.convertAndSend("/seckill/123", msg + "hahah");
     }
 
-    @PostMapping("/add")
+    @PostMapping(value = "/add",consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public Object addSeckillGood(@RequestBody SeckillGood good){
         Boolean flag = goodSeckillService.addSeckillGood(good);
         if(flag) {
@@ -122,6 +127,15 @@ public class SeckillGoodController {
         Boolean flag = goodSeckillService.deleteSelected(ids);
         if (flag) {
             return new ResultResponse(200, "success", flag);
+        }
+        return new ResultResponse(500, "error", null);
+    }
+
+    @GetMapping("/get")
+    public Object getSeckillById(Integer id){
+        SeckillGoodVo seckillGood = goodSeckillService.getSeckillById(id);
+        if(seckillGood!=null){
+            return new ResultResponse(200, "success", seckillGood);
         }
         return new ResultResponse(500, "error", null);
     }

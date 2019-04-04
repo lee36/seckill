@@ -17,8 +17,8 @@ import java.util.UUID;
 @Service
 public class BannerServiceImpl implements BannerService {
 
-    private static String uploadPath="F:\\IDEA_project\\seckill-shop\\target\\classes\\static\\banner";
-    private static String showPath="http://localhost:8080/banner/";
+    private static String uploadPath="F:\\IDEA_project\\seckill-shop\\src\\main\\resources\\upload\\banners";
+    private static String showPath="http://localhost:8080/banners/";
 
     @Autowired
     private BannerMapper bannerMapper;
@@ -81,5 +81,14 @@ public class BannerServiceImpl implements BannerService {
       }catch (Exception e) {
           return false;
       }
+    }
+
+    /**
+     * 获取最新的可用的banner
+     * @return
+     */
+    @Override
+    public List<Banner> getNewBanner() {
+        return bannerMapper.getNewBanners();
     }
 }

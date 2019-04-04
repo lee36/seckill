@@ -11,10 +11,7 @@ import io.jsonwebtoken.Claims;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
@@ -36,7 +33,7 @@ public class UserController {
     public Object login(@Valid UserLoginForm user, BindingResult result) throws IOException {
         if (result.hasErrors()) {
             Map<String, String> map = ValidateErrorUtil.buildeError(result);
-            return new ResultResponse(501, "输入格式有误", map);
+            return new ResultResponse(501, "输入账号或者密码格式有误", map);
         }
         Map<String, Object> exits = userService.userLogin(user);
         if (exits != null) {
@@ -46,7 +43,7 @@ public class UserController {
     }
 
     @PostMapping("/regist")
-    public Object regist(@Valid UserRegistForm user, BindingResult result) throws Exception {
+    public Object regist(@RequestBody @Valid UserRegistForm user, BindingResult result) throws Exception {
         if (result.hasErrors()) {
             Map<String, String> map = ValidateErrorUtil.buildeError(result);
             return new ResultResponse(501, "注册失败", map);

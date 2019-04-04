@@ -38,4 +38,11 @@ public interface SeckillGoodsMapper {
 
     @Delete("delete from seckill_good_tb where id=#{id}")
     int deleteById(Integer id);
+
+    @Select("select * from seckill_good_tb")
+    @Results({
+            @Result(column = "store_id",property = "store",one=
+                    @One(select = "com.lee.seckillshop.mapper.StoreMapper.findById"))
+    })
+    List<SeckillGood> getIndexSeckill();
 }

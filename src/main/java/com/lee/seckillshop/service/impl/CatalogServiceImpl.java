@@ -20,7 +20,7 @@ import java.util.UUID;
 @Service
 public class CatalogServiceImpl implements CatalogService {
 
-    private static String uploadPath="F:\\IDEA_project\\seckill-shop\\target\\classes\\static\\catalog";
+    private static String uploadPath="F:\\IDEA_project\\seckill-shop\\src\\main\\resources\\upload\\catalog";
     private static String showPath="http://localhost:8080/catalog/";
 
     @Autowired

@@ -27,7 +27,7 @@ public class RegistIntercepter implements HandlerInterceptor {
         String ip = IpUtils.getIpAddr(request);
         Integer num = jedisTemplate.get(ip, Integer.class);
         if (num == null) {
-            jedisTemplate.set(ip, 1, 3);
+            jedisTemplate.set(ip, 1, 3L);
             return true;
         }
         if (SECONDVISITED.equals(num)) {

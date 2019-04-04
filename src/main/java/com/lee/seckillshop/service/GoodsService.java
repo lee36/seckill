@@ -4,6 +4,7 @@ package com.lee.seckillshop.service;
 import com.lee.seckillshop.commons.model.Goods;
 import com.lee.seckillshop.commons.model.GoodsCatalog;
 import com.lee.seckillshop.commons.vo.GoodSolrDocument;
+import com.lee.seckillshop.commons.vo.SeckillGoodVo;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.web.multipart.MultipartFile;
@@ -31,4 +32,12 @@ public interface GoodsService {
     Boolean updateGoods(MultipartFile file, Goods goods);
 
     Boolean deleteSelected(List<Integer> ids);
+
+    List<Goods> getIndexGoods();
+
+    List<Goods> getCatalogGoods(Integer id);
+
+    List<Goods> getStoreGoods(Integer id);
+
+    public List<SeckillGoodVo> addStartTimeAndFinishedTime(List<SeckillGoodVo> seckillGoods);
 }

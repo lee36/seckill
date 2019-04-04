@@ -9,8 +9,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class ReciverInfo {
     private Integer id;
-    private String address;
-    private String telephone;
+    private String name;
+    private String phone;
     private String orderId;
     private Integer type;
+    private String user;
+    private String sex;
 }

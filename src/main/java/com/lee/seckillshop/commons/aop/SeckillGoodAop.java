@@ -41,20 +41,20 @@ public class SeckillGoodAop {
         String day = CommonUtil.dateFormat(new Date(), "yyyy-MM-dd");
         Integer flag = jedisTemplate.get("seckill:" + day + ":" + userId, Integer.class);
         if (new Integer(0).equals(flag)) {
-            jedisTemplate.set("seckill:disabled:id:" + userId, 1, 24 * 60 * 60);
+            jedisTemplate.set("seckill:disabled:id:" + userId, 1, 24 * 60 * 60L);
             throw new SeckillAllReadyException("你已经抢购过了，请下次再来!");
         }
         List<LinkedHashMap<String, Object>> seckillGoods = jedisTemplate.get("seckill:goods", List.class);
         if (seckillGoods == null) {
             seckillGoods = seckillGoodsMapper.seckillGoodsList();
-            jedisTemplate.set("seckill:goods", seckillGoods, 10000);
+            jedisTemplate.set("seckill:goods", seckillGoods, 30L);
         }
         int stock = exist(seckillGoodId, seckillGoods);
         if(stock==-1){
             throw new SeckillGoodNotFull("秒杀商品库存不足");
         }
         //存入当前商品的库存
-        jedisTemplate.set("seckill:stock:id:" + seckillGoodId, stock, 10000);
+        jedisTemplate.set("seckill:stock:id:" + seckillGoodId, stock, 30L);
     }
 
     /**

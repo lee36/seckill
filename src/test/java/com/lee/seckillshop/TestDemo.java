@@ -6,9 +6,8 @@ import org.junit.runner.RunWith;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import redis.clients.jedis.JedisCluster;
-import redis.clients.jedis.JedisPool;
 
 import java.util.Arrays;
 import java.util.Map;
@@ -25,7 +24,7 @@ public class TestDemo {
     @Autowired
     private SeckillGoodsMapper seckillGoodsMapper;
     @Autowired
-    private JedisCluster jedisCluster;
+    private RedisTemplate redisTemplate;
     @Autowired
     private RabbitTemplate rabbitTemplate;
 
@@ -48,8 +47,4 @@ public class TestDemo {
         Arrays.asList(0, 1, 2, 3, 4, 5, 6).stream().forEach(i -> rabbitTemplate.convertAndSend("amq.direct", "seckill.queque", i));
     }
 
-    @Test
-    public void testsjal() {
-        Map<String, JedisPool> clusterNodes = jedisCluster.getClusterNodes();
-    }
 }

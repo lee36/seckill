@@ -26,6 +26,15 @@ public class UserUpdateProvider {
                 if ((Integer)form.getIdentity()!=null) {
                     SET("identity= #{identity}");
                 }
+                if ((Integer)form.getSex()!=null) {
+                    SET("sex= #{sex}");
+                }
+                if (!StringUtils.isEmpty(form.getAddress())) {
+                    SET("address= #{address}");
+                }
+                if (!StringUtils.isEmpty(form.getNickname())) {
+                    SET("nickname= #{nickname}");
+                }
                 WHERE("id = #{id}" );
 
             }

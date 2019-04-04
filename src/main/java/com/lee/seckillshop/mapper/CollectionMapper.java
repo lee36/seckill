@@ -1,10 +1,9 @@
 package com.lee.seckillshop.mapper;
 
 import com.lee.seckillshop.commons.model.Collection;
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.*;
+
+import java.util.List;
 
 @Mapper
 public interface CollectionMapper {
@@ -14,4 +13,12 @@ public interface CollectionMapper {
 
     @Delete("delete from collection_tb where id=#{id}")
     public int deleteById(Integer id);
+
+    @Select("select * from collection_tb where user_id=#{id}")
+    @Results({
+            @Result(column = "good_id",property = "goods",many = @Many(
+                    select = "com.lee.seckillshop.mapper.GoodsMapper.findById"
+            ))
+    })
+    List<Collection> getMyCollectors(Integer id);
 }

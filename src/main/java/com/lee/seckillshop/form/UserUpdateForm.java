@@ -24,14 +24,18 @@ public class UserUpdateForm {
     @NotNull
     private Integer id;
     @Pattern(regexp = "^1((3[0-9])|(4[5|7])|(5([0-3]|[5-9]))|(8[0,5-9]))\\d{8}$", message = "请输入正确的手机号")
-    @PhoneUnique(message = "手机号已存在")
     @NotNull(message = "手机号不能为空")
     private String phone;
     @NotNull(message = "email不能为空")
-    @EmailUnique
     private String email;
     @NotNull
     private Integer status;
     @NotNull
     private Integer identity;
+    @NotNull
+    private String address;
+    @NotNull
+    private Integer sex;
+    @NotNull
+    private String nickname;
 }

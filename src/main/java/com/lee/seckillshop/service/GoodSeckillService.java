@@ -1,7 +1,9 @@
 package com.lee.seckillshop.service;
 
 import com.lee.seckillshop.commons.model.SeckillGood;
+import com.lee.seckillshop.commons.vo.SeckillGoodVo;
 
+import java.util.LinkedHashMap;
 import java.util.List;
 
 /**
@@ -15,4 +17,10 @@ public interface GoodSeckillService {
     public Boolean updateSeckillGood(Integer status,Integer id);
     List<SeckillGood> getMySelfGoodsList(Integer id);
     public Boolean deleteSelected(List<Integer> ids);
+
+    List<List<SeckillGood>> getIndexSeckill();
+
+    SeckillGoodVo getSeckillById(Integer id);
+
+    public List<LinkedHashMap<String, Object>> getAllSeckillGood();
 }

@@ -3,10 +3,11 @@ package com.lee.seckillshop.commons.componet;
 
 import com.lee.seckillshop.commons.util.JsonUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Component;
-import redis.clients.jedis.JedisCluster;
 
 import java.io.IOException;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @author admin
@@ -17,7 +18,7 @@ import java.io.IOException;
 public class JedisComponet {
 
     @Autowired
-    private JedisCluster jedisCluster;
+    private StringRedisTemplate redisTemplate;
 
     /**
      * 设置值
@@ -28,18 +29,26 @@ public class JedisComponet {
      * @return
      * @throws Exception
      */
-    public String set(String key, Object value, Integer second) throws Exception {
+    public String set(String key, Object value, Long second) throws Exception {
             String s = JsonUtil.obj2Json(value);
             String result = null;
             if (second == null) {
-                result = jedisCluster.set(key, s);
+                redisTemplate.opsForValue().set(key,s);
             } else {
-                result = jedisCluster.set(key, s, "NX", "EX", second);
+                redisTemplate.opsForValue().set(key,s,second,TimeUnit.SECONDS);
             }
 
         return result;
     }
-
+    public void multi(){
+        redisTemplate.multi();
+    }
+    public void exec(){
+        redisTemplate.exec();
+    }
+    public void disCard(){
+        redisTemplate.discard();
+    }
     /**
      * 通过key获取对应的alue
      *
@@ -50,8 +59,8 @@ public class JedisComponet {
      * @throws Exception
      */
     public <T> T get(String key, Class<T> clazz) throws Exception {
-        String s = jedisCluster.get(key);
-        T t = JsonUtil.json2Obj(s, clazz);
+        String s1 = redisTemplate.opsForValue().get(key);
+        T t = JsonUtil.json2Obj(s1, clazz);
         return t;
     }
 
@@ -62,7 +71,7 @@ public class JedisComponet {
      * @return
      */
     public Long incr(String key) {
-        Long incr = jedisCluster.incr(key);
+        Long incr = redisTemplate.opsForValue().increment(key,1);
         return incr;
     }
 
@@ -73,18 +82,18 @@ public class JedisComponet {
      * @return
      */
     public Long decr(String key) {
-        return jedisCluster.decr(key);
+        return redisTemplate.opsForValue().increment(key,-1);
     }
 
     /**
      * 用户访问量
      */
     public void userVisited() {
-        String user_visited = jedisCluster.get("user:visited");
+        String user_visited = redisTemplate.opsForValue().get("user:visited");
         if (user_visited == null) {
-            jedisCluster.set("user:visited", "1");
+            redisTemplate.opsForValue().set("user:visited", "1");
         } else {
-            jedisCluster.incr("user:visited");
+            redisTemplate.opsForValue().increment("user:visited",1);
         }
     }
 
@@ -92,13 +101,7 @@ public class JedisComponet {
      * 删除某个key
      */
     public void delete(String key) {
-        jedisCluster.del(key);
+        redisTemplate.delete(key);
     }
 
-    /**
-     * 释放资源
-     */
-    public void release() throws IOException {
-        jedisCluster.close();
-    }
 }

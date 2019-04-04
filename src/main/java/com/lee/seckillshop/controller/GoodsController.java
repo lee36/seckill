@@ -1,7 +1,11 @@
 package com.lee.seckillshop.controller;
 
+import com.lee.seckillshop.commons.model.Banner;
 import com.lee.seckillshop.commons.model.Goods;
+import com.lee.seckillshop.commons.model.SeckillGood;
 import com.lee.seckillshop.commons.util.ParseSolrDocumentUtil;
+import com.lee.seckillshop.service.BannerService;
+import com.lee.seckillshop.service.GoodSeckillService;
 import com.lee.seckillshop.service.GoodsService;
 import com.lee.seckillshop.commons.vo.GoodSolrDocument;
 import com.lee.seckillshop.commons.vo.ResultResponse;
@@ -27,7 +31,35 @@ import java.util.Map;
 public class GoodsController {
     @Autowired
     private GoodsService goodsService;
+    @Autowired
+    private BannerService bannerService;
+    @Autowired
+    private GoodSeckillService goodSeckillService;
 
+    @RequestMapping("/getBanners")
+    public Object getIndexBanners(){
+        List<Banner> banners=bannerService.getNewBanner();
+        if(banners!=null){
+            return new ResultResponse(200, "sccess", banners);
+        }
+        return new ResultResponse(500,"error", null);
+    }
+    @RequestMapping("/getSeckill")
+    public Object getIndexSeckill(){
+       List<List<SeckillGood>> seckillGoods=goodSeckillService.getIndexSeckill();
+        if(seckillGoods!=null){
+            return new ResultResponse(200, "sccess", seckillGoods);
+        }
+        return new ResultResponse(500,"error", null);
+    }
+    @RequestMapping("/getGoods")
+    public Object getGoods(){
+        List<Goods> goods=goodsService.getIndexGoods();
+        if(goods!=null){
+            return new ResultResponse(200, "sccess", goods);
+        }
+        return new ResultResponse(500,"error", null);
+    }
     @RequestMapping("/showIndex")
     public Object showIndex(@PageableDefault(page = 1, size = 4) Pageable pageable) throws Exception {
         Map<String, Object> map = goodsService.showIndex(pageable);
@@ -67,5 +99,20 @@ public class GoodsController {
         }
         return new ResultResponse(500,"error",null);
     }
-
+    @RequestMapping("/getCatalogGoods")
+    public Object getCatalogGoods(Integer id){
+        List<Goods> lists=goodsService.getCatalogGoods(id);
+        if(lists!=null&&lists.size()!=0){
+            return new ResultResponse(200,"success",lists);
+        }
+        return new ResultResponse(500,"error",null);
+    }
+    @RequestMapping("/getStoreGoods")
+    public Object getStoreGoods(Integer id){
+        List<Goods> goods=goodsService.getStoreGoods(id);
+        if(goods!=null&&goods.size()!=0){
+            return new ResultResponse(200,"success",goods);
+        }
+        return new ResultResponse(500,"error",null);
+    }
 }

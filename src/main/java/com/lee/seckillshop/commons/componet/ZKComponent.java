@@ -66,13 +66,13 @@ public class ZKComponent {
 
     }
 
-    public void getLock(){
+    public void getLock(Integer id){
         while (true){
             try{
                 curator.create().creatingParentsIfNeeded()
                         .withMode(CreateMode.EPHEMERAL)
                         .withACL(ZooDefs.Ids.OPEN_ACL_UNSAFE)
-                        .forPath("/"+PARENT+"/"+lockname);
+                        .forPath("/"+PARENT+"/"+lockname+":"+id);
                 log.info("获取锁成功..........");
                 return ;
             }catch (Exception e){
@@ -91,10 +91,10 @@ public class ZKComponent {
         }
     }
 
-    public Boolean realse(){
+    public Boolean realse(Integer id){
         try {
-            if(curator.checkExists().forPath("/"+PARENT+"/"+lockname)!=null){
-                curator.delete().forPath("/"+PARENT+"/"+lockname);
+            if(curator.checkExists().forPath("/"+PARENT+"/"+lockname+":"+id)!=null){
+                curator.delete().forPath("/"+PARENT+"/"+lockname+":"+id);
             }
             log.info("释放锁成功..........");
         } catch (Exception e) {

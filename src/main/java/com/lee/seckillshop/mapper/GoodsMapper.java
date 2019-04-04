@@ -59,4 +59,37 @@ public interface GoodsMapper {
 
     @Delete("Delete from goods_tb where id=#{id}")
     void deleteById(Integer id);
+
+    @Select("select * from goods_tb where status=0")
+    @Results({
+            @Result(column = "store_id", property = "store", one = @One(
+                    select = "com.lee.seckillshop.mapper.StoreMapper.findById"
+            ))
+    })
+    List<Goods> getIndexGoods();
+
+
+    @Select("SELECT * FROM goods_tb where status=0 ORDER BY weight desc limit 0,8")
+    @Results({
+            @Result(column = "store_id", property = "store", javaType = Store.class, one = @One(
+                    select = "com.lee.seckillshop.mapper.StoreMapper.findById"
+            ))
+    })
+    List<Goods> findTop8ByWeight();
+
+    @Select("select * from goods_tb where catalog_id=#{id}")
+    @Results({
+            @Result(column = "store_id", property = "store", javaType = Store.class, one = @One(
+                    select = "com.lee.seckillshop.mapper.StoreMapper.findById"
+            ))
+    })
+    List<Goods> getCatalogGoods(Integer id);
+
+    @Select("select * from goods_tb where store_id=#{id}")
+    @Results({
+            @Result(column = "store_id", property = "store", javaType = Store.class, one = @One(
+                    select = "com.lee.seckillshop.mapper.StoreMapper.findById"
+            ))
+    })
+    List<Goods> getStoreGoods(Integer id);
 }

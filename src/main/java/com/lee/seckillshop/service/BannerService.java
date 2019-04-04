@@ -15,4 +15,6 @@ public interface BannerService {
     public Boolean deleteSelected(List<Integer> ids);
 
     public Boolean cageBanner(List<Integer> nums,Integer flag);
+
+    List<Banner> getNewBanner();
 }

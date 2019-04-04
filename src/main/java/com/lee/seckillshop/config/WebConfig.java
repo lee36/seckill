@@ -3,13 +3,15 @@ package com.lee.seckillshop.config;
 import com.lee.seckillshop.commons.intercepter.RegistIntercepter;
 import com.lee.seckillshop.commons.intercepter.TokenInterceper;
 
-import com.lee.seckillshop.commons.vo.MydateFormat;
+import com.lee.seckillshop.commons.vo.MyTimeStampDeserializer;
+import com.lee.seckillshop.commons.vo.MydateCoverter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.servlet.MultipartConfigFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.web.PageableHandlerMethodArgumentResolver;
 import org.springframework.format.FormatterRegistry;
+import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.method.support.HandlerMethodArgumentResolver;
 import org.springframework.web.servlet.config.annotation.*;
@@ -63,6 +65,7 @@ public class WebConfig implements WebMvcConfigurer {
         PageableHandlerMethodArgumentResolver resolver = new PageableHandlerMethodArgumentResolver();
         resolvers.add(resolver);
     }
+
 
     /**
      * 设置restTemplate用于构建请求

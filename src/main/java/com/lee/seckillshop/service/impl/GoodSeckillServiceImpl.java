@@ -1,30 +1,41 @@
 package com.lee.seckillshop.service.impl;
 
+import com.beust.jcommander.internal.Lists;
+import com.google.common.collect.ImmutableMultiset;
 import com.lee.seckillshop.commons.componet.JedisComponet;
 import com.lee.seckillshop.commons.componet.ZKComponent;
 import com.lee.seckillshop.commons.exception.SeckillGoodIdNotExistException;
 import com.lee.seckillshop.commons.model.*;
 import com.lee.seckillshop.commons.util.CommonUtil;
+import com.lee.seckillshop.commons.vo.SeckillGoodVo;
 import com.lee.seckillshop.mapper.GoodsMapper;
 import com.lee.seckillshop.mapper.SeckillGoodsMapper;
 import com.lee.seckillshop.mapper.SeckillOrderMapper;
 import com.lee.seckillshop.mapper.StoreMapper;
 import com.lee.seckillshop.service.GoodSeckillService;
+import com.lee.seckillshop.service.GoodsService;
 import com.rabbitmq.client.Channel;
+import com.sun.corba.se.impl.oa.toa.TOA;
 import org.springframework.amqp.core.Message;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.aop.framework.AopContext;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.TransactionStatus;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.transaction.support.TransactionCallbackWithoutResult;
+import org.springframework.transaction.support.TransactionTemplate;
 
 import java.io.IOException;
+import java.lang.annotation.Target;
 import java.time.ZonedDateTime;
 import java.util.*;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @author admin
@@ -49,8 +60,11 @@ public class GoodSeckillServiceImpl implements GoodSeckillService {
     @Autowired
     @Qualifier("seckill")
     private ZKComponent zkComponent;
+    @Autowired
+    private GoodsService goodsService;
+    @Autowired
+    private TransactionTemplate transactionTemplate;
 
-    @Async
     @RabbitListener(queues = "queque")
     public void dealSeckillDeal(Map<String, Object> ids, Channel channel, Message message) throws Exception {
         try {
@@ -78,36 +92,44 @@ public class GoodSeckillServiceImpl implements GoodSeckillService {
      */
     @Transactional
     public void createOrder(Integer userId, Integer seckGoodId){
-        try {
-            SeckillGood seckillGood = seckillGoodsMapper.findSeckillGood(seckGoodId);
-            if(seckillGood==null){
-                throw new SeckillGoodIdNotExistException("秒杀商品不存在");
-            }
-            SeckillOrder seckillOrder = new SeckillOrder();
-            User user = new User();
-            user.setId(userId);
-            seckillOrder.setName(seckillGood.getName());
-            seckillOrder.setPrice(seckillGood.getPrice());
-            seckillOrder.setId(CommonUtil.generateUUID());
-            seckillOrder.setUser(user);
-            //生成订单
-            seckillOrderMapper.saveSeckillOrder(seckillOrder);
-            //缓存相应数量减少
-            jedisTemplate.decr("seckill:stock:id:" + seckGoodId);
-            //更新所有缓存秒杀商品
-            updateAllSeckillGoods(seckGoodId);
-            //数据库减少
-            seckillGoodsMapper.updateStockWithOne(seckGoodId);
-            //通知用户
-            simpMessagingTemplate.convertAndSend("/seckill/" + userId, "恭喜你抢购成功");
+        transactionTemplate.execute(new TransactionCallbackWithoutResult() {
+            @Override
+            protected void doInTransactionWithoutResult(TransactionStatus transactionStatus) {
+                try {
+                    SeckillGood seckillGood = seckillGoodsMapper.findSeckillGood(seckGoodId);
+                    if(seckillGood==null){
+                        throw new SeckillGoodIdNotExistException("秒杀商品不存在");
+                    }
+                    SeckillOrder seckillOrder = new SeckillOrder();
+                    User user = new User();
+                    user.setId(userId);
+                    seckillOrder.setName(seckillGood.getName());
+                    seckillOrder.setPrice(seckillGood.getPrice());
+                    seckillOrder.setId(CommonUtil.generateUUID());
+                    seckillOrder.setUser(user);
+                    seckillOrder.setGood(seckillGood);
+                    //生成订单
+                    seckillOrderMapper.saveSeckillOrder(seckillOrder);
+                    //缓存相应数量减少
+                    jedisTemplate.decr("seckill:stock:id:" + seckGoodId);
+                    //更新所有缓存秒杀商品
+                    updateAllSeckillGoods(seckGoodId);
+                    //数据库减少
+                    seckillGoodsMapper.updateStockWithOne(seckGoodId);
 
-            //设置标志位，同一天内不允许同时抢购
-            String day = CommonUtil.dateFormat(new Date(), "yyyy-MM-dd");
-            //禁止再次抢购
-            jedisTemplate.set("seckill:" + day + ":" + userId, 0, 24 * 60 * 60);
-        }catch (Exception e){
-            simpMessagingTemplate.convertAndSend("/seckill/" + userId, "抢购过程中发生异常");
-        }
+                    //设置标志位，同一天内不允许同时抢购
+                    String day = CommonUtil.dateFormat(new Date(), "yyyy-MM-dd");
+                    //禁止再次抢购
+                    jedisTemplate.set("seckill:" + day + ":" + userId, 0, 24 * 60 * 60L);
+                    //通知用户
+                    simpMessagingTemplate.convertAndSend("/seckill/" + userId, "恭喜你抢购成功");
+                }catch (Exception e){
+                    simpMessagingTemplate.convertAndSend("/seckill/" + userId, "抢购过程中发生异常");
+                    transactionStatus.setRollbackOnly();
+                }
+            }
+        });
+
     }
 
     @Override
@@ -161,15 +183,56 @@ public class GoodSeckillServiceImpl implements GoodSeckillService {
         }
     }
 
+    @Override
+    public List<List<SeckillGood>> getIndexSeckill() {
+        List<SeckillGood> seckildGoods=seckillGoodsMapper.getIndexSeckill();
+        List<List<SeckillGood>> list = new ArrayList<>();
+        //每页4个
+        int size=4;
+        //5
+        int total=seckildGoods.size();
+        //2
+        int page=total%size==0?total/size:total/size+1;
+        //初始化4个容器
+        int start=0;
+        int end=4;
+        for (int i=0;i<page;i++){
+            if(end>total){
+                end=total;
+            }
+            list.add(new ArrayList<>());
+            for (int j=start;j<end;j++){
+                list.get(i).add(seckildGoods.get(j));
+            }
+            start+=4;
+            end+=4;
+
+        }
+        return list;
+    }
+
+    @Override
+    public SeckillGoodVo getSeckillById(Integer id) {
+
+        SeckillGood seckillGood = seckillGoodsMapper.findSeckillGood(id);
+        SeckillGoodVo seckillGoodVo = new SeckillGoodVo();
+        BeanUtils.copyProperties(seckillGood,seckillGoodVo);
+        return goodsService.addStartTimeAndFinishedTime(Lists.newArrayList(seckillGoodVo)).get(0);
+    }
+
+    @Override
+    public List<LinkedHashMap<String, Object>> getAllSeckillGood() {
+        return seckillGoodsMapper.seckillGoodsList();
+    }
+
 
     @Override
     public boolean seckillGood(Integer seckGoodId, Integer userId) throws Exception {
+        //TimeUnit.SECONDS.sleep(5);
         try {
-            Thread.sleep(3000L);
-            zkComponent.getLock();
+            zkComponent.getLock(seckGoodId);
             Integer flag = jedisTemplate.get("seckill:disabled:id:" + userId, Integer.class);
             if (new Integer(1).equals(flag)) {
-                zkComponent.realse();
                 return false;
             } else {
                 Integer stock = jedisTemplate.get("seckill:stock:id:" + seckGoodId, Integer.class);
@@ -189,15 +252,13 @@ public class GoodSeckillServiceImpl implements GoodSeckillService {
                         }
                     });
                     rabbitTemplate.convertAndSend("amq.direct", "queque", ids);
-                    zkComponent.realse();
                     return true;
                 } else {
-                    zkComponent.realse();
                     return false;
                 }
             }
         }finally {
-            zkComponent.realse();
+            zkComponent.realse(seckGoodId);
         }
     }
 

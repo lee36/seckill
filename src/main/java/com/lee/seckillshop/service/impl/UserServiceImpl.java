@@ -180,7 +180,7 @@ public class UserServiceImpl implements UserService {
         Integer num=jedisTemplate.get("sys_users_num",Integer.class);
         if(num==null||num==0){
             Integer users = userMapper.coutUsers();
-            jedisTemplate.set("sys_users_num",users,1*60);
+            jedisTemplate.set("sys_users_num",users,1*60L);
             return users;
         }
         return num;

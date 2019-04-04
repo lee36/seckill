@@ -35,7 +35,7 @@ import java.util.UUID;
 @Service
 public class GoodsServiceImpl implements GoodsService {
 
-    private static String uploadPath="F:\\IDEA_project\\seckill-shop\\target\\classes\\static\\goods";
+    private static String uploadPath="F:\\IDEA_project\\seckill-shop\\src\\main\\resources\\upload\\goods";
     private static String showPath="http://localhost:8080/goods/";
 
     @Autowired
@@ -63,7 +63,7 @@ public class GoodsServiceImpl implements GoodsService {
             List<SeckillGoodVo> seckillGoods = seckillGoodsMapper.seckillGoodListTop4();
             info.put("seckillGoods", addStartTimeAndFinishedTime(seckillGoods));
             info.put("catalogs", catalogMapper.findAllCatalog());
-            jedisTemplate.set("index:info:page=" + pageable.getPageNumber(), info, 5);
+            jedisTemplate.set("index:info:page=" + pageable.getPageNumber(), info, 5L);
             return info;
         } else {
             return map;
@@ -100,7 +100,7 @@ public class GoodsServiceImpl implements GoodsService {
             return false;
         }
         Integer id = user.getId();
-        Store store = storeMapper.findById(id);
+        Store store = storeMapper.findByUserId(id);
         //生成新的文件名称
         String filename = file.getOriginalFilename();
         String suffix = filename.substring(filename.lastIndexOf("."), filename.length());
@@ -167,13 +167,28 @@ public class GoodsServiceImpl implements GoodsService {
         }
     }
 
+    @Override
+    public List<Goods> getIndexGoods() {
+        return goodsMapper.findTop8ByWeight();
+    }
+
+    @Override
+    public List<Goods> getCatalogGoods(Integer id) {
+        return goodsMapper.getCatalogGoods(id);
+    }
+
+    @Override
+    public List<Goods> getStoreGoods(Integer id) {
+        return goodsMapper.getStoreGoods(id);
+    }
+
     /**
      * 添加秒杀开始时间和时间
      *
      * @param seckillGoods
      * @return
      */
-    private List<SeckillGoodVo> addStartTimeAndFinishedTime(List<SeckillGoodVo> seckillGoods) {
+    public List<SeckillGoodVo> addStartTimeAndFinishedTime(List<SeckillGoodVo> seckillGoods) {
         for (SeckillGoodVo seckillGood : seckillGoods) {
             seckillGood.setFinishedTime(seckillGood.getEndTime().getTime());
             seckillGood.setStartTime(seckillGood.getCreateTime().getTime());

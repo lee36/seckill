@@ -24,4 +24,7 @@ public interface BannerMapper {
     @Update("update banner_tb set status=0 where id=#{id}")
     public int cage(int id);
 
+    @Select("select * from banner_tb where status=1 order by create_time desc limit 3")
+    public List<Banner> getNewBanners();
+
 }

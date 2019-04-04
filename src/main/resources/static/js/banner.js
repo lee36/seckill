@@ -8,7 +8,7 @@ new Vue({
             isBanner:"",
             isGood:"",
             isSeckill:"",
-            isShop:"",
+            isCatalog:"",
             bannerList:"",
             page:1,
             size:4,
@@ -24,7 +24,6 @@ new Vue({
                 .then(function(response){
                     self.user=response.data.data;
                     if(self.user==null){
-                        alert("请先登录")
                         window.location.href="http://localhost:8080/html/login.html"
                         return ;
                     }
@@ -33,7 +32,7 @@ new Vue({
                     self.isShowAdvice(self.user);
                     self.isShowBanner(self.user);
                     self.isShowSeckill(self.user);
-                    self.isShowShop(self.user);
+                    self.isShowCatalog(self.user);
                 });
         },
         loadBannerList:function(self){
@@ -41,7 +40,6 @@ new Vue({
                 .then(function(response){
                     let obj=response.data
                     if(obj.code==500){
-                        alert("没有任何内容")
                         return ;
                     }else{
                         self.bannerList=obj.data.list;
@@ -95,12 +93,12 @@ new Vue({
                 this.isBanner=true;
             }
         },
-        isShowShop:function(user){
+        isShowCatalog:function(user){
             let identity=user.identity;
             if(identity==2){
-                this.isShop=true;
+                this.isCatalog=true;
             }else{
-                this.isShop=false;
+                this.isCatalog=false;
             }
         },
         logout:function(){
@@ -201,6 +199,7 @@ new Vue({
                     let obj=result.code;
                     if(obj==200){
                         alert("上传成功")
+                        window.location.reload()
                         self.isShowUpdate=false;
                         return ;
                     }else{
